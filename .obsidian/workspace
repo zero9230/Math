@@ -9,9 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+            "file": "advanced-math/knowledge/4-indefinite-integral-and-definite-integral/indefinite-integral-and-definite-integral.md",
             "mode": "preview",
-            "source": false
+            "source": true
           }
         }
       }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+                "file": "advanced-math/knowledge/4-indefinite-integral-and-definite-integral/indefinite-integral-and-definite-integral.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+                "file": "advanced-math/knowledge/4-indefinite-integral-and-definite-integral/indefinite-integral-and-definite-integral.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md"
+                "file": "advanced-math/knowledge/4-indefinite-integral-and-definite-integral/indefinite-integral-and-definite-integral.md"
               }
             }
           }
@@ -130,15 +130,15 @@
   },
   "active": "304574d04bee7c16",
   "lastOpenFiles": [
-    "advanced-math/knowledge/7-integral-calculus-of-multivariate-functions/integral-calculus-of-multivariate-functions.md",
+    "advanced-math/knowledge/3-applications-of-derivatives/applications-of-derivatives.md",
+    "advanced-math/knowledge/4-indefinite-integral-and-definite-integral/indefinite-integral-and-definite-integral.md",
     "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+    "advanced-math/knowledge/7-integral-calculus-of-multivariate-functions/integral-calculus-of-multivariate-functions.md",
     "advanced-math/exercise/7-integral-calculus-of-multivariate-functions/integral-calculus-of-multivariate-functions.md",
     "advanced-math/exercise/8-infinite-series/infinite-series.md",
     "advanced-math/exercise/9-differential-equation/differential-equation.md",
     "advanced-math/exercise/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
     "advanced-math/exercise/4-integal-of-functions-of-single-variable/integal-of-functions-of-single-variable.md",
-    "probability-theory-and-mathematical-statistics/knowledge/2-random-variables-and-distribution/random-variables-and-distribution.md",
-    "probability-theory-and-mathematical-statistics/knowledge/1-random-events-and-probability/random-events-and-probability.md",
-    "linear-algebra/knowledge/5-similar/similar.md"
+    "probability-theory-and-mathematical-statistics/knowledge/2-random-variables-and-distribution/random-variables-and-distribution.md"
   ]
 }
