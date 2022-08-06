@@ -1,0 +1,283 @@
+---
+author:
+- Didnelpsun
+title: 向量代数与空间解析几何
+---
+
+该部分的内容服务于后面的多元函数积分学。
+
+# 向量代数
+
+## 向量及其表达形式
+
+[**定义：**]{style="color: violet"}既有方向又有大小的向量称为**向量**。
+
+向量的相等性体现在大小和方向，与空间位置无关。
+
+向量表达形式为$\vec{a}=(a_x,a_y,a_z)=a_x\vec{i}+a_y\vec{j}+a_z\vec{k}$。
+
+## 向量运算
+
+设$\vec{a}=(a_x,a_y,a_z)$，$\vec{b}=(b_x,b_y,b_z)$，$\vec{c}=(c_x,c_y,c_z)$，$\vec{a},\vec{b},\vec{c}$均不是零向量。
+
+### 数量积
+
+称为内积或点积。
+
+-   $\vec{a}\cdot\vec{b}=(a_x,a_y,a_z)\cdot(b_x,b_y,b_z)=a_xb_x+a_yb_y+a_zb_z$。
+
+-   $\vec{a}\cdot\vec{b}=\vert\vec{a}\vert\vert\vec{b}\vert\cos\theta$，则$\cos\theta=\dfrac{\vec{a}\cdot\vec{b}}{\vert a\vert\vert b\vert}=\dfrac{a_xb_x+a_yb_y+a_zb_z}{\sqrt{a_x^2+a_y^2+a_z^2}\cdot\sqrt{b_x^2+b_y^2+b_z^2}}$，其中$\theta$为$\vec{a},\vec{b}$夹角。
+
+-   $a\bot b\Leftrightarrow\theta=\dfrac{\pi}{2}\Leftrightarrow a\cdot b=\vert a\vert\vert b\vert\cos\theta=0\Leftrightarrow a_xb_x+a_yb_y+a_zb_z=0$。
+
+-   $Prj_ba=\dfrac{a\cdot b}{\vert b\vert}=\dfrac{a_xb_x+a_yb_y+a_zb_z}{\sqrt{b_x^2+b_y^2+b_z^2}}$称$a$在$b$上的**投影**。
+
+### 向量积
+
+也称为外积、叉积。
+
+-   $\vec{a}\times\vec{b}=\left\vert\begin{array}{ccc}
+            \vec{i} & \vec{j} & \vec{k} \\
+            a_x & a_y & a_z \\
+            b_x & b_y & b_z
+        \end{array}\right\vert$，其中$\vert a\times b\vert=\vert a\vert\vert b\vert\sin\theta$，用右手规则确定方向（转向角不超过$\pi$），其中$\theta$为$\vec{a},\vec{b}$夹角。
+
+-   $a//b\Leftrightarrow\theta=0$或$\pi\Leftrightarrow\dfrac{a_x}{b_x}=\dfrac{a_y}{b_y}=\dfrac{a_z}{b_z}$。
+
+### 混合积
+
+-   $[\vec{a}\vec{b}\vec{c}]=(a\times b)\cdot c=\left\vert\begin{array}{ccc}
+            a_x & a_y & a_z \\
+            b_x & b_y & b_z \\
+            c_x & c_y & c_z \\
+        \end{array}\right\vert$。
+
+-   $\left\vert\begin{array}{ccc}
+            a_x & a_y & a_z \\
+            b_x & b_y & b_z \\
+            c_x & c_y & c_z \\
+        \end{array}\right\vert=0\Leftrightarrow$三向量共面。
+
+## 向量方向角与方向余项
+
+-   $\vec{a}$与$x$轴、$y$轴、$z$轴正向的夹角$\alpha$、$\beta$、$\gamma$为$\vec{a}$的**方向角**。
+
+-   $\cos\alpha$，$\cos\beta$，$\cos\gamma$称为$\vec{a}$的**方向余弦**，且$\cos\alpha=\dfrac{a_x}{\vert\vec{a}\vert}$，$\cos\beta=\dfrac{a_y}{\vert\vec{a}\vert}$，$\cos\gamma=\dfrac{a_z}{\vert\vec{a}\vert}$。
+
+-   $a^\circ=\dfrac{\vec{a}}{\vert\vec{a}\vert}=(\cos\alpha,\cos\beta,\cos\gamma)$称为向量$\vec{a}$的**单位向量**（表示方向的向量）。
+
+-   任意向量$\vec{r}=x\vec{i}+y\vec{j}+z\vec{k}=(r\cos\alpha,r\cos\beta,r\cos\gamma)=r(\cos\alpha,\cos\beta,\cos\gamma)$，$\cos\alpha$，$\cos\beta$，$\cos\gamma$称为$\vec{r}$的方向余弦，$r$为$\vec{r}$的模，$\cos\alpha=\dfrac{x}{\sqrt{x^2+y^2+z^2}}$，$\cos\beta=\dfrac{y}{\sqrt{x^2+y^2+z^2}}$，$\cos\gamma=\dfrac{z}{\sqrt{x^2+y^2+z^2}}$，$r=\sqrt{x^2+y^2+z^2}$。
+
+# 空间解析几何
+
+## 平面方程
+
+假设平面的法向量$\vec{n}=(A,B,C)$。
+
+-   一般式：$Ax+By+Cz+D=0$。
+
+-   点法式：$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$。
+
+-   三点式：$\left\vert\begin{array}{ccc}
+            x-x_1 & y-y_1 & z-z_1 \\
+            x-x_2 & y-y_2 & z-z_2 \\
+            x-x_3 & y-y_3 & z-z_3 \\
+        \end{array}\right\vert=0$（平面过不共线的三点）。
+
+-   截距式：$\dfrac{x}{a}+\dfrac{y}{b}+\dfrac{z}{c}=1$（平面过$(a,0,0)$，$(0,b,0)$，$(0,0,c)$三点）。
+
+## 直线方程
+
+假设直线的方向向量$\vec{\tau}=(l,m,n)$。
+
+-   一般式：$\left\{\begin{array}{l}
+            A_1x+B_1y+C_1z+D_1=0,\vec{n}_1=(A_1,B_1,C_1) \\
+            A_2x+B_2y+C_2z+D_2=0,\vec{n}_2=(A_2,B_2,C_2)
+        \end{array}\right.$，其中$\vec{n}_1$不平行于$\vec{n}_2$。（两个平面的交线，该直线方向向量$\vec{\tau}=n_1\times n_2$）
+
+-   点向式（标准式、对称式）：$\dfrac{x-x_0}{l}=\dfrac{y-y_0}{m}=\dfrac{z-z_0}{n}$。（直线上一点与方向向量成比例）
+
+-   参数式：$\left\{\begin{array}{l}
+            x=x_0+lt \\
+            y=y_0+mt \\
+            z=z_0+nt
+        \end{array}\right.$，$M(x_0,y_0,z_0)$为直线上已知点，$t$为参数。
+
+-   两点式：$\dfrac{x-x_1}{x_2-x_1}=\dfrac{y-y_1}{y_2-y_1}=\dfrac{z-z_1}{z_2-z_1}$。（直线过不同的两点）
+
+## 位置关系
+
+### 点到平面距离
+
+点$P_0(x_0,y_0,z_0)$到平面$Ax+By+Cz+D=0$的距离为$d=$\
+$\dfrac{\vert Ax_0+By_0+Cz_0+D\vert}{\sqrt{A^2+B^2+C^2}}$。
+
+### 直线关系
+
+设$\vec{\tau}_1=(l_1,m_1,n_1)$，$\vec{\tau}_2=(l_2,m_2,n_2)$分别为直线$L_1$，$L_2$的方向向量。
+
+-   $L_1\bot L_2\Leftrightarrow\vec{\tau}_1\bot\vec{\tau}_2\Leftrightarrow l_1l_2+m_1m_2+n_1n_2=0$。
+
+-   $L_1//L_2\Leftrightarrow\vec{\tau}_1//\vec{\tau}_2\Leftrightarrow\dfrac{l_1}{l_2}\Leftrightarrow\dfrac{m_1}{m_2}=\dfrac{n_1}{n_2}$。
+
+### 平面关系
+
+设平面$\pi_1$，$\pi_2$的法向量分别为$\vec{n}_1=(A_1,B_1,C_1)$，$\vec{n}_2=(A_2,B_2,C_2)$。
+
+-   $\pi_1\bot\pi_2\Leftrightarrow\vec{n}_1\bot\vec{n}_2\Leftrightarrow A_1A_2+B_1B_2+C_1C_2=0$。
+
+-   $\pi_1//\pi_2\Leftrightarrow\vec{n}_1//\vec{n}_2\Leftrightarrow\dfrac{A_1}{A_2}=\dfrac{B_1}{B_2}=\dfrac{C_1}{C_2}$。
+
+### 直线与平面关系
+
+设直线$L$的方向向量为$\tau=(l,m,n)$，平面$\vec{\tau}$的法向量为$\vec{n}=(A,B,C)$。
+
+-   $L\bot\pi\Leftrightarrow\vec{\tau}//\vec{n}\Leftrightarrow\dfrac{A}{l}=\dfrac{B}{m}=\dfrac{C}{n}$。
+
+-   $L//\pi\Leftrightarrow\vec{\tau}\bot\vec{n}\Leftrightarrow Al+Bm+Cn=0$。
+
+## 空间曲线
+
+### 表达式
+
+-   一般式：$\varGamma:\left\{\begin{array}{l}
+            F(x,y,z)=0 \\
+            G(x,y,z)=0
+        \end{array}\right.$，表示两个曲面的交线。
+
+-   参数方程：$\varGamma:\left\{\begin{array}{l}
+            x=\phi(t) \\
+            y=\psi(t) \\
+            z=\omega(t)
+        \end{array}\right.$，$t\in[\alpha,\beta]$。
+
+### 空间曲线在坐标面投影
+
+如求曲线$\varOmega$在$xOy$平面上的投影曲线，讲$\varGamma:\left\{\begin{array}{l}
+    F(x,y,z)=0 \\
+        G(x,y,z)=0
+\end{array}\right.$中的$z$消去，得到$\varphi(x,y)=0$，则曲线$\varOmega$在$xOy$面上的投影曲线包含于$\left\{\begin{array}{l}
+    \varphi(x,y)=0 \\
+    z=0
+\end{array}\right.$。
+
+## 空间曲面
+
+### 曲面方程
+
+隐式表达式：$F(x,y,z)=0$，显式表达式：$z=z(x,y)$。
+
+### 二次曲面
+
+-   球面：$x^2+y^2+z^2=r^2$。
+
+-   椭球面：$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$。
+
+-   单叶双曲面：$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$。
+
+-   双叶双曲面：$\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$。
+
+-   椭圆抛物面：$\dfrac{x^2}{2p}+\dfrac{y^2}{2q}=z$（$p,q>0$）。（常考旋转抛物面$x^2+y^2=z$）
+
+-   椭圆锥面：$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=\dfrac{z^2}{c^2}$。（常考旋转锥面$z=\sqrt{x^2+y^2}$）
+
+-   双曲抛物面（马鞍面）：$-\dfrac{x^2}{2p}+\dfrac{y^2}{2q}=z$（$p,q>0$）。（可能考$z=xy$）
+
+### 柱面
+
+空间解析几何中一般认为缺少变量的方程为柱面。
+
+是动直线沿定曲线平行移动所形成的曲面。
+
+-   椭圆柱面：$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$（当$a=b$为圆柱面）。
+
+-   双曲柱面：$\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$。
+
+-   抛物柱面：$y=ax^2$。
+
+### 旋转曲面
+
+绕某轴转，其就不变，把另外一个字母写成另外两个字母的平方和的开方。
+
+是曲线$\varGamma$绕一条定直线旋转一周所形成的曲面。
+
+给定一条直线$L:\dfrac{x-x_0}{l}=\dfrac{y-y_0}{m}=\dfrac{z-z_0}{n}$，其方向向量为$\vec{\tau}(l,m,n)$，上有一点$P_0(x_0,y_0,z_0)$。
+
+现在给定一条曲线$\varGamma:\left\{\begin{array}{l}
+    F(x,y,z)=0 \\
+    G(x,y,z)=0
+\end{array}\right.$。
+
+在$\varGamma$上找一点$P_1(x_1,y_1,z_1)$，然后再讲$P_1$绕$L$旋转一周得到一个纬圆，去纬圆上一点$P(x,y,z)$，则$P$为旋转曲面上任意一点。
+
+因为$P_1$在曲线$\varGamma$上，所以$F(x_1,y_1,z_1)=0$，$G(x_1,y_1,z_1)=0$。
+
+同一个纬圆到$L$上的$P_0$距离相等，既$\vert\overrightarrow{P_1P_0}\vert=\vert\overrightarrow{PP_0}\vert$，即$(x_1-x_0)^2+(y_1-y_0)^2+(z_1-z_0)^2=(x-x_0)^2+(y-y_0)^2+(z-z_0)^2$。
+
+每一个纬圆的平面与旋转中心$L$的方向向量$\vec{\tau}$垂直，而$P_1P$在平面上，所以该连线向量$\overrightarrow{P_1P}\bot\vec{\tau}$，即$l(x-x_1)+m(y-y_1)+n(z-z_1)=0$。
+
+为了得到旋转曲面面积，需要消去$x_1,y_1,z_1$，得到$H(x,y,z)=0$。
+
+**例题：**求曲线$L:\left\{\begin{array}{l}
+    x-y+2z-1=0 \\
+    x-3y-2z+1=0
+\end{array}\right.$绕$y$轴旋转一周所形成的曲面方程。
+
+解：令$P_1(x_1,y_1,z_1)$在曲线上，所以$x_1-y_1+2z_1-1=0$，$x_1-3y_1-2z_1+1=0$。
+
+然后任意一点$P(x,y,z)$到$P_0(x_0,y_0,z_0)$的距离与$P_1$到$P_0$距离相同，取$P_0(0,0,0)$，则$x_1^2+y_1^2+z_1^2=x^2+y^2+z^2$。
+
+两条连线垂直$y$轴，即$\overrightarrow{P_1P}\bot(0,1,0)$，即$y=y_1$。
+
+消去$x_1,y_1,z_1$，根据$y=y_1$，所以$x_1^2+z_1^2=x^2+z^2$。
+
+根据交线方程解得$x_1=2y$，$z_1=\dfrac{1}{2}(1-y)$。
+
+再代入得到$x^2+z^2=(2y)^2+\dfrac{1}{4}(1-y)^2$，解得$x^2-\dfrac{17}{4}y^2+z^2+\dfrac{y}{2}-\dfrac{1}{4}=0$。
+
+# 场论初步
+
+## 方向导数
+
+偏导数就是一个函数在坐标轴方向上的变化率，而方向导数就是函数在某点沿其他特定方向上的变化率。
+
+[**定义：**]{style="color: violet"}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$的某空间领域$U\in R^3$内有定义，$l$从点$P_0$出发的射线，$P(x,y,z)$为$l$上切在$U$内的任一点，则$\left\{\begin{array}{l}
+    x-x_0=\Delta x=t\cos\alpha \\
+    y-y_0=\Delta y=t\cos\beta \\
+    z-z_0=\Delta z=t\cos\gamma
+\end{array}\right.$进行在坐标轴上投影。
+
+以$t=\sqrt{(\Delta x)^2+(\Delta y)^2+(\Delta z)^2}$表示$P$与$P_0$之间的距离。若极限$\lim\limits_{t\to0^+}$\
+$\dfrac{u(P)-u(P_0)}{t}=\lim\limits_{t\to0^+}\dfrac{u(x_0+t\cos\alpha,y_0+t\cos\beta,z_0+t\cos\gamma)-u(x_0,y_0,z_0)}{t}$存在，则称此极限为函数$u=u(x,y,z)$在点$P_0$沿方向$l$的**方向导数**，记为$\dfrac{\partial u}{\partial l}\bigg|_{P_0}$。
+
+方向导数计算公式[**定理：**]{style="color: aqua"}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$处可微分，则$u=u(x,y,z)$在点$P_0$处沿任一方向$l$的方向导数都存在，且$\dfrac{\partial u}{\partial l}\bigg|_{P_0}=u_x'(P_0)\cos\alpha+u_y'(P_0)\cos\beta+u_z'(P_0)\cos\gamma$，其中$\cos\alpha$，$\cos\beta$，$\cos\gamma$为方向$l$的方向余弦。
+
+**例题：**求函数$z=xe^{2y}$在点$P(1,0)$处沿点$P(1,0)$指向$Q(2,-1)$方向的方向导数。
+
+解：这是一个隐式的三元函数，所以基本上解决方法类似。不过需要将$z$对$xy$求偏导。
+
+$\dfrac{\partial z}{\partial x}=e^{2y}$，$\dfrac{\partial z}{\partial y}=2xe^{2y}$，代入$P(1,0)$，得到$\{1,2\}$。
+
+然后求方向余弦，对于$\overrightarrow{PQ}={1,-1}$方向余弦就是除它的模$\left\{\dfrac{1}{\sqrt{2}},-\dfrac{1}{\sqrt{2}}\right\}$。
+
+方向导数就是相乘：$\dfrac{1}{\sqrt{2}}-\dfrac{2}{\sqrt{2}}=-\dfrac{\sqrt{2}}{2}$。
+
+## 梯度
+
+在一个数量场中中，函数在给定点处沿不同的方向，其方向导数一般是不相同的。为研究哪个方向的方向导数最大，最大值为多少，增加速度最快，就引入了梯度。
+
+[**定义：**]{style="color: violet"}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$处具有一阶偏导数，定义$\text{grad}\,u|_{P_0}=(u'_x(P_0),u_y'(P_0),u_z'(P_0))$为函数$u=u(x,y,z)$在点$P_0$处的**梯度**。
+
+## 方向导数与梯度关系
+
+方向导数为梯度×梯度方向余弦。
+
+函数在某点的梯度是一个向量，其方向与取得最大方向导数的方向是一致的，其模就是方向导数最大值。
+
+## 散度与旋度
+
+[**定义：**]{style="color: violet"}设向量场$\vec{A}(x,y,z)=(P(x,y,z),Q(x,y,z),R(x,y,z))$，则**散度**$\textrm{div}\,\vec{A}=\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}$，**旋度**$\overrightarrow{\textrm{rot}}\,\vec{A}=\left\vert\begin{array}{ccc}
+    \vec{i} & \vec{j} & \vec{k} \\
+    \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+    P & Q & R
+\end{array}\right\vert$。

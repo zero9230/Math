@@ -1,0 +1,324 @@
+---
+author:
+- Didnelpsun
+title: 微分方程
+---
+
+本节内容较少。
+
+若一曲线过点$(1,2)$，且该曲线上任一点$M\,(x,y)$处的切线的斜率为$2x$，求该曲线的方程。
+
+令所求曲线为$\varphi(x)$，$\dfrac{\textrm{d}y}{\textrm{d}x}=2x$，且$x=1$时，$y=2$。
+
+两边积分：$\int\textrm{d}y=y=\int2x\,\textrm{d}x$。所以$y=x^2+C$。
+
+代入$(1,2)$，$C=1$，所以$y=x^2+1$。
+
+# 微分方程基本概念
+
+## 微分方程构成
+
+[**定义：**]{style="color: violet"}表示未知函数、未知函数的导数与自变量之间的关系的方程，即含导数的方程就是**微分方程**。导数可能是一阶导数也可能是二阶以及以上阶数的导数。
+
+常微分方程[**定义：**]{style="color: violet"}未知函数是一元函数的微分方程。如$y'''-y''+6y=0$，$y\,\textrm{d}x-(x+\sqrt{x^2+y^2})\,\textrm{d}y=0$。
+
+[**定义：**]{style="color: violet"}微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的**阶**。
+
+$n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导数是必须出现的。若能从中解出最高阶导数，则可得微分方程$y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})$。
+
+## 微分方程的解
+
+微分方程的解是函数。
+
+[**定义：**]{style="color: violet"}若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的**通解**。
+
+如若$y''=3$，则$y'=3x+C_1$，$y=\dfrac{3}{2}x^2+C_1x+C_2$，此时含有两个任意常数$C_1C_2$，则微分方程的阶数也为2。
+
+[**定义：**]{style="color: violet"}确定通解中任意常数后，就得到微分方程的**特解**。
+
+[**定义：**]{style="color: violet"}当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是**初值条件**，如上面的$y''=3$。
+
+求微分方程$y'=f(x,y)$满足初值条件$y\vert_{x=x_0}=y_0$的特解这样的问题，就是一阶微分方程的初值问题，记为$\left\{\begin{array}{l}
+    y'=f(x,y) \\
+    y\vert_{x=x_0}=y_0
+\end{array}
+\right.$。
+
+微分方程的解的图形是一条曲线，叫做微分方程的**积分曲线**，初值问题的集几何意义就是求微分方程的通过某点的积分曲线。
+
+**例题：**判断函数$x=C_1\cos kt+C_2\sin kt$是否是微分方程$\dfrac{\textrm{d}^2x}{\textrm{d}t^2}+k^2x=0$的解，若是则令其为$k\neq0$时方程的通解，求满足初值条件$x\vert_{t=0}=A$，$\dfrac{\textrm{d}x}{\textrm{d}t}\bigg\vert_{t=0}=0$时的特解。
+
+解：判断是否为方程的解，就要将这个解代入微分方程中。微分方程中除了$x$，还出现了$x''$，所以需要先将$x$对$t$求两次导：
+
+$x'=-kC_1\sin kt+kC_2\cos kt$，$x''=-k^2C_1\sin kt-k^2C_2\sin kt$。代入方程：
+
+$-k^2(C_1\sin kt+C_2\sin kt)+k^2(C_1\cos kt+C_2\sin kt)\equiv0$，所以是解，然后求特解：
+
+代入$x\vert_{t=0}=A$，$\therefore C_1=A$，代入$\dfrac{\textrm{d}x}{\textrm{d}t}\bigg\vert_{t=0}=0$，$\therefore C_2=0$。
+
+所以代入$x=C_1\cos kt+C_2\sin kt$得到特解：$x=A\cos kt$。
+
+# 可分离变量的微分方程
+
+对于第一节的$\textrm{d}y=2x\,\textrm{d}x$可以直接求解，如$\dfrac{\textrm{d}y}{\textrm{d}x}=2x$直接移项就可以得到通解$x^2+C$。
+
+但是并不是所有都是如此，如$\dfrac{\textrm{d}y}{\textrm{d}x}=2xy^2$求积分得$y=\int2xy^2\,\textrm{d}x$，这本身不能直接解，但是可以将$\dfrac{\textrm{d}y}{\textrm{d}x}=2xy^2$先两边同乘$\dfrac{\textrm{d}x}{y^2}$得到$\dfrac{\textrm{d}y}{y^2}=2x\textrm{d}x$，将$xy$分离在两端，然后两边同时积分得到$-\dfrac{1}{y}=x^2+C$，所以$y=-\dfrac{1}{x^2+C}$。
+
+[**定义：**]{style="color: violet"}形如$y'=f(x)g(y)$的方程就是**变量可分离型**方程。
+
+可以变型为$\dfrac{\textrm{d}y}{g(y)}=f(x)\textrm{d}x$，即将含$y$的放在一边，含$x$的放在另一边。然后对两边求积分就得到$\displaystyle{\int\dfrac{\textrm{d}y}{g(y)}=\int f(x)\textrm{d}x}$，解得隐式解或隐式通解$G(y)=F(x)+C$。最后可以将隐式解化为显式解。
+
+**例题：**求微分方程$\dfrac{\textrm{d}y}{\textrm{d}x}=2xy$。
+
+解：$\displaystyle{\int\dfrac{\textrm{d}y}{y}}=\int2x\,\textrm{d}x$，$\ln\vert y\vert=x^2+C$，$\vert y\vert=e^{x^2+C}$。
+
+$\therefore y=\pm e^{x^2}e^C=\pm C_1e^{x^2}=C_2e^{x^2}$。
+
+[注意：]{style="color: orange"}在微分方程部分可以直接$\ln y=x^2+C$而不用管正负号，因为正负号都会被归为常数中。
+
+# 可化为可分离变量型
+
+## 多项式换元
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}=f(ax+by+c)$的方程，其中$a,b,c$全不为0。
+
+令$u=ax+by+c$，则$\dfrac{\textrm{d}u}{\text{d}x}=a+b\dfrac{\textrm{d}y}{\textrm{d}x}$，代入原方程$\dfrac{\textrm{d}u}{\textrm{d}x}=a+bf(u)$。
+
+## 自然齐次方程
+
+若一阶微分方程可化为$\dfrac{\textrm{d}y}{\textrm{d}x}=\varphi\left(\dfrac{y}{x}\right)$，则这方程就是一个齐次方程。
+
+也可能出现$\dfrac{\textrm{d}x}{\textrm{d}y}=\varphi\left(\dfrac{x}{y}\right)$。
+
+令$u=\dfrac{y}{x}$，则$y=ux$变为$\dfrac{\textrm{d}y}{\textrm{d}x}=u+x\dfrac{\textrm{d}u}{\textrm{d}x}$（$u$不是一个常数而是一个关于$x$的函数，所以$\dfrac{\textrm{d}y}{\textrm{d}x}\neq u$），从而原方程变为$x\dfrac{\textrm{d}u}{\textrm{d}x}+u=\varphi(u)$，即$\dfrac{\textrm{d}u}{\varphi(u)-u}=\dfrac{\textrm{d}x}{x}$。
+
+如$(xy-y^2)\textrm{d}x-(x^2-2xy)\textrm{d}y=0$可以化为$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{xy-y^2}{x^2-2xy}$，即$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{y}{x}-\left(\dfrac{y}{x}\right)^2}{1-2\left(\dfrac{y}{x}\right)}$。
+
+解决齐次方程问题的过程：令$u=\dfrac{y}{x}$；$y=xu$；$\dfrac{\textrm{d}y}{\textrm{d}x}=u+x\dfrac{\textrm{d}u}{\textrm{d}x}$。
+
+代入微分方程：$u+x\dfrac{\textrm{d}u}{\textrm{d}x}=\varphi(u)$，$\therefore x\dfrac{\textrm{d}u}{\textrm{d}x}=\varphi(u)-u$，分离变量：$\dfrac{\textrm{d}u}{\varphi(u)-u}=\dfrac{\textrm{d}x}{x}$，求积分$\displaystyle{\int\dfrac{\textrm{d}u}{\varphi(u)-u}=\int\dfrac{\textrm{d}x}{x}}$。最后求出积分再用$\dfrac{y}{x}$替代$u$。
+
+若是方程可以变为齐次方程，则$x$和$y$的幂应该是对称的，可以尝试除以一个$x^a$来变为$\dfrac{y^a}{x^a}$形式。
+
+**例题：**求$y^2+x^2\dfrac{\textrm{d}y}{\textrm{d}x}=xy\dfrac{\textrm{d}y}{\textrm{d}x}$。
+
+解：得到$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y^2}{xy-x^2}$。
+
+然后将这个等式化为$\dfrac{y}{x}$的形式，分子分母同时除以$x^2$：$\dfrac{\dfrac{y^2}{x^2}}{\dfrac{xy-x^2}{x^2}}=\dfrac{\left(\dfrac{y}{x}\right)^2}{\dfrac{y}{x}-1}$。
+
+从而到第三步：$u+x\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{u^2}{u-1}$，$\therefore x\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{u^2}{u-1}-u=\dfrac{u}{u-1}$。
+
+$\therefore\dfrac{u-1}{u}\textrm{d}u=\dfrac{\textrm{d}x}{x}$，$\therefore\displaystyle{\int\dfrac{u-1}{u}\textrm{d}u=\int\dfrac{\textrm{d}x}{x}}$，$u-\ln u=\ln x+C$，$\ln xu=u+C$。
+
+代入$u=\dfrac{y}{x}$，得到$\ln y=\dfrac{y}{x}+C$，所以得到$y=Ce^{\frac{y}{x}}$。
+
+## 可化为齐次方程
+
+对于自然齐次方程，其形式如$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{A_1x+B_1y}{A_2x+B_2y}$，则可以除以$x$得到齐次方程。
+
+而对于形式如$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{A_1x+B_1y+C_1}{A_2x+B_2y+C_2}$，则因为有常数项，所以不能直接除以$x$。
+
+所以想尝试消去常数项。令$x=X+h$，$y=Y+k$。
+
+$\therefore\dfrac{\textrm{d}Y}{\textrm{d}X}=\dfrac{A_1X+B_1Y+A_1h+B_1k+C_1}{A_2X+B_2Y+A_2h+B_2k+C_2}$，当取一个合适的$h$和$k$时常数项$A_1h+B_1k+C_1=A_2h+B_2k+C_2=0$，从而能化为齐次方程。
+
+若$\dfrac{A_2}{A_1}\neq\dfrac{B_2}{B_1}$，则可以解得：
+
+$\left\{\begin{array}{l}
+    k=\dfrac{A_1C_2-A_2C_1}{A_2B_1-A_1B_2} \\  
+    h=\dfrac{A_1B_1C_2-A_2B_1C_1+A_1A_2B_1C_1-A_1^2B_2C_1}{A_1^2B_2-A_1A_2B_1}
+\end{array}
+\right.$.
+
+若$\dfrac{A_2}{A_1}=\dfrac{B_2}{B_1}$，即关系式对应成比例。
+
+令$\dfrac{A_2}{A_1}=\dfrac{B_2}{B_1}=\lambda$，$\therefore\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{A_1x+B_1y+C_1}{\lambda(A_1x+B_1y)+C_2}$。
+
+又令$A_1x+B_1y=v$，$\therefore\dfrac{\textrm{d}v}{\textrm{d}x}=A_1+B_1\,\dfrac{\textrm{d}y}{\textrm{d}x}$，$\dfrac{\textrm{d}v}{\textrm{d}x}=A_1+B_1\dfrac{v+C_1}{\lambda v+C_2}$
+
+$=\dfrac{(A_1\lambda+B_1)v+A_1C_2+B_1C_1}{\lambda v+C_2}$。此时未知数只有$v$，所以可以按照可分离变量来处理。
+
+# 一阶线性微分方程
+
+## 线性方程
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$就是一阶线性方程。因为其对未知函数$y$与其导数都是一次方程。
+
+若$Q(x)\equiv 0$，则是齐次一阶线性微分方程，可化为$\dfrac{\textrm{d}y}{y}=-P(x)\,\textrm{d}x$，$\ln y=\int P(x)\,\textrm{d}x+C'$，$y=e^{-\int P(x)\,\textrm{d}x}\cdot e^{C'}$，$y=Ce^{-\int P(x)\,\textrm{d}x}$。
+
+若$Q(x)\neq 0$，则是非齐次一阶线性微分方程，令$y=ue^{-\int P(x)\,\textrm{d}x}$，求$u$这个关于$x$的函数的具体值，这就是**常数变易法**。代入$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}-ue^{-\int P(x)\,\textrm{d}x}P(x)+P(x)ue^{-\int P(x)\,\textrm{d}x}=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}=Q(x)$，从而得到$u'$，再对$u'$积分得到$u=\displaystyle{\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x}+C$。从而代入$y=ue^{-\int P(x)\,\textrm{d}x}$，得到[**定理：**]{style="color: aqua"}$y=e^{-\int P(x)\,\textrm{d}x}(\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x+C)$。非齐次通解就是其齐次通解加上一个非齐次的特解。
+
+**例题：**求$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{1}{x+y}$。
+
+解：不能直接做，因为不能分离出$y$。
+
+可以两边求倒数：$\dfrac{\textrm{d}x}{\textrm{d}y}-x=y$，颠倒$xy$，得到$\dfrac{\textrm{d}y}{\textrm{d}x}-y=x$。就可以按照公式来求。
+
+或令$x+y=u$，所以$y=u-x$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}u}{\textrm{d}x}-1$，$\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{1+u}{u}$，$\dfrac{u}{1+u}\textrm{d}u=\textrm{d}x$。
+
+[**定理：**]{style="color: aqua"}一阶线性方程时，$\displaystyle{\int\dfrac{1}{x}\textrm{d}x}=\ln\vert x\vert=\ln x$。
+
+证明：令$p=\dfrac{1}{x}$，$\int p\,\textrm{d}x=\displaystyle{\int\dfrac{1}{x}\textrm{d}x}=\ln\vert x\vert$。
+
+根据公式$y=e^{-\ln\vert x\vert}(\int e^{\ln\vert x\vert}Q(x)\,\textrm{d}x+C)=\dfrac{1}{\vert x\vert}(\int\vert x\vert Q(x)\,\textrm{d}x+C)=\dfrac{1}{\pm x}$\
+$(\int(\pm x)Q(x)\,\textrm{d}x+C)=\dfrac{1}{x}(\int xQ(x)\,\textrm{d}x\pm C)=\dfrac{1}{x}(\int xQ(x)\,\textrm{d}x+D)$。
+
+## 伯努利方程
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)y^n$就是伯努利方程。若$y=1$则是可分离变量方程，若$y=0$则是一阶线性方程。
+
+变形：$y^{-n}\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y^{1-n}=Q(x)$，又令$y^{1-n}=z$，$\dfrac{\textrm{d}z}{\textrm{d}x}=(1-n)y^{-n}\dfrac{\textrm{d}y}{\textrm{d}x}$，从而$\dfrac{1}{1-n}\dfrac{\textrm{d}z}{\textrm{d}x}=y^{-n}\dfrac{\textrm{d}y}{\textrm{d}x}$，代入$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)y^n$得到$\dfrac{1}{1-n}\dfrac{\textrm{d}z}{\textrm{d}x}+P(x)z=Q(x)$，从而$\dfrac{\textrm{d}z}{\textrm{d}x}=(1-n)P(x)z=(1-n)Q(x)$，将$(1-n)P(x)$当作$P(x)$，$(1-n)Q(x)$当中$Q(x)$代入得到$z$的关系式，再利用上面线性方程的公式求$y$。
+
+# 可降阶的高阶微分方程
+
+高阶微分方程即含二阶以及二阶以上的微分方程，需要将其降为一阶微分方程。
+
+## $y^{(n)}=f(x)$型
+
+右边是只包含$x$的函数。
+
+直接对函数不断求积分就可以了。连续积分$n$次，会得到一个含有$n$个任意常数的通解。
+
+**例题：**求$y'''=e^{2x}-\cos x$。
+
+解：$y''=\dfrac{1}{2}e^{2x}-\sin x+C_1$，$y'=\dfrac{1}{4}e^{2x}+\cos x+C_1x+C_2$，$y=\dfrac{1}{8}e^{2x}+\sin x+\dfrac{1}{2}C_1x^2+C_2x+C_3$。
+
+## $y''=f(x,y')$型
+
+即存在$y''$，$y'$和$x$但是没有$y$。
+
+所以令$y'=p$，$y''=p'$，代入：$p'=f(x,p)$，代入$p=\varphi(x,C_1)$，所以$\dfrac{\textrm{d}y}{\textrm{d}x}=\varphi(x,C_1)$，对其积分：$y=\int\varphi(x,C_1)\,\textrm{d}x+C_2$。
+
+**例题：**求$(1+x^2)y''=2xy'$，满足初值条件$y\vert_{x=0}=1$，$y'\vert_{x=0}=3$的特解。
+
+解：令$y'=p$，$y''=p'$，所以$(1+x^2)p'=2xp$。
+
+$\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}\textrm{d}x$，$\ln p=\ln(1+x^2)+C'$，$p=C(1+x^2)$，所以$y'=3(1+x^2)$，$y=x^3+3x+1$。
+
+## $y''=f(y,y')$型
+
+即存在$y''$，$y'$和$y$但是没有$x$。
+
+所以令$y'=p$，$y''=p'=\dfrac{\textrm{d}p}{\textrm{d}x}=\dfrac{\textrm{d}p}{\textrm{d}y}\cdot\dfrac{\textrm{d}y}{\textrm{d}x}=p\dfrac{\textrm{d}p}{\textrm{d}y}=f(y,p)$。
+
+设其通解为$y'=p=\varphi(y,C_1)$。
+
+分离变量并积分，得到通解为$\displaystyle{\int\dfrac{\textrm{d}y}{\varphi(y,C_1)}=x+C_2}$。
+
+**例题：**求微分方程$yy''-y'^2=0$的通解。
+
+解：令$y'=p$，$y''=p\dfrac{\textrm{d}p}{\textrm{d}y}$，代入$yp\dfrac{\textrm{d}p}{\textrm{d}y}-p^2=0$。
+
+若$p\neq0$，$y\neq0$，则$yp\dfrac{\textrm{d}p}{\textrm{d}y}$，$\dfrac{\textrm{d}p}{p}=\dfrac{\textrm{d}y}{y}$，$p=Cy$。
+
+若$p=0$，则$y'=0$，则$y$是一个常数。
+
+所以综上$y=C_2e^{C_1y}$。
+
+# 高阶线性微分方程
+
+第一部分是一阶微分方程，分为可分离变量微分方程、齐次微分方程、一阶齐次线性微分方程、一阶非齐次线性微分方程。
+
+第二部分是可降阶的高阶微分方程，分为三种。
+
+第三部分就是本节的高阶线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$就是$n$阶齐次线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$就是$n$阶非齐次线性微分方程
+
+## 概念
+
+[**定义：**]{style="color: violet"}方程$y''+P(x)y'+Q(x)y=f(x)$称为**二阶变系数线性微分方程**，其中$P(x)$，$Q(x)$为系数函数，$f(x)$为自由项，都是已知的连续方程。
+
+当$f(x)\equiv0$时，$y''+P(x)y'+Q(x)y=0$为**齐次方程**。
+
+当$f(x)$不恒为0时，$y''+P(x)y'+Q(x)y=f(x)$为**非齐次方程**。
+
+[**定义：**]{style="color: violet"}方程$y''+py'+qy=f(x)$称为**二阶常系数线性微分方程**，其中$p$，$q$为常数，$f(x)$为自由项，都是已知的连续方程。
+
+当$f(x)\equiv0$时，$y''+py'+qy=0$为**齐次方程**。
+
+当$f(x)$不恒为0时，$y''+py'+qy=f(x)$为**非齐次方程**。
+
+考试基本上只考常系数线性微分方程。
+
+## 解的结构
+
+若$\varphi_1(x)$与$\varphi_2(x)$为两个函数，当$\varphi_1(x)$与$\varphi_2(x)$不成比例，则称$\varphi_1(x)$与$\varphi_2(x)$线性无关，否则$\varphi_1(x)$与$\varphi_2(x)$线性相关。
+
+[**定理：**]{style="color: aqua"}若$\varphi_1(x)$与$\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$的解，则$y=C_1\varphi_1(x)+C_2\varphi_2(x)$也为其解。
+
+证明：因为$\varphi_1(x)$与$\varphi_2(x)$为解，所以代入方程：
+
+$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=0$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=0$
+
+从而$(C_1\varphi_1+C_2\varphi_2)''+a(x)(C_1\varphi_1+C_2\varphi_2)'+b(x)(C_1\varphi_1+C_2\varphi_2)=C_1(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)+C_2(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)=0$。
+
+所以得证。
+
+[**定理：**]{style="color: aqua"}若$\varphi_1(x)$与$\varphi_2(x)$分别为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$与$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解，则$y=\varphi_1(x)+\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解。
+
+证明：$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=0$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=f(x)$，代入$y=\varphi_1(x)+\varphi_2(x)$：
+
+$(\varphi_1+\varphi_2)''+a(x)(\varphi_1+\varphi_2)'+b(x)(\varphi_1+\varphi_2)=(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)+(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)=f(x)$。
+
+所以得证。
+
+[**定理：**]{style="color: aqua"}若$\varphi_1(x)$与$\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解，则$y=\varphi_1(x)-\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$的解。
+
+证明：$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=f(x)$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=f(x)$，代入$y=\varphi_1(x)-\varphi_2(x)$：
+
+$(\varphi_2-\varphi_1)''+a(x)(\varphi_2-\varphi_1)'+b(x)(\varphi_2-\varphi_1)$
+
+$(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)-(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)$
+
+$f(x)-f(x)=0$，所以得证。
+
+[**定理：**]{style="color: aqua"}若$\varphi_1(x)$与$\varphi_2(x)$分别为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f_1(x)$与$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f_2(x)$的解，则$y=\varphi_1(x)+\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f_1(x)+f_2(x)$的解。
+
+## 二阶常系数齐次线性微分方程的通解
+
+可以根据高阶微分方程的解的结构得到二阶的通解。
+
+对于$y''+py'+qy=0$，其对应的特征方程为$\lambda^2+p\lambda+q=0$，求其特征根，有三种情况（$\lambda_1\lambda_2$为任意常数）：
+
+1.  若$p^2-4q>0$，设$\lambda_1,\lambda_2$是特征方程的两个不等实根，即$\lambda_1\neq\lambda_2$，其通解为$y=C_1e^{\lambda_1x}+C_2e^{\lambda_2x}$。
+
+2.  若$p^2-4q=0$，设$\lambda_1,\lambda_2$是特征方程的两个相等实根，即二重根，令$\lambda=\lambda_1=\lambda_2$，其通解为$y=(C_1+C_2x)e^{\lambda x}$。
+
+3.  若$p^2-4q<0$，设$\alpha\pm\beta i$是特征方程的一对共轭复根，$\lambda_{1,2}=\dfrac{-p\pm\sqrt{4q-p^2}i}{2}$\
+    $=-\dfrac{p}{2}\pm\dfrac{\sqrt{4q-p^2}}{2}i$，记为$\alpha\pm\beta i$，其通解为$y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)$。
+
+## 二阶常系数非齐次线性微分方程的特解
+
+设$P_n(x)$，$P_m(x)$分别为$x$的$n$次$m$次多项式。
+
+1.  当自由项$f(x)=P_n(x)e^{\alpha x}$时，特解设为$y^*=e^{\alpha x}Q_n(x)x^k$，其中$e^{\alpha x}$照抄，$Q_n(x)$为$x$的$n$次多项式，且$k=\left\{\begin{array}{ll}
+            0, & \alpha\text{不是特征根} \\
+            1， & \alpha\text{是单特征根} \\
+            2, & \alpha\text{是二重特征根}
+        \end{array}\right.$。
+
+2.  当自由项$f(x)=e^{\alpha x}[P_m(x)\cos\beta x+P_n(x)\sin\beta x]$时，特解设为$y^*=e^{\alpha x}[Q_l^{(1)}(x)\cos\beta x+Q_l^{(2)}(x)\sin\beta x]x^k$，其中$e^{\alpha x}$照抄，$l=\max\{m,n\}$，$Q_l^{(1)}$、$Q_l^{(2)}$为$x$的两个不同的$l$次多项式，且$k=\left\{\begin{array}{ll}
+            0, & \alpha\pm\beta i\text{不是特征根} \\
+            1， & \alpha\pm\beta i\text{是特征根} \\
+        \end{array}\right.$。
+
+# 欧拉方程
+
+## 概念
+
+[**定义：**]{style="color: violet"}形如$x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+px\dfrac{\textrm{d}y}{\textrm{d}x}+qy=f(x)$的方程称为**欧拉方程**，其中$pq$为常数，$f(x)$为已知函数。
+
+## 解法
+
+使用换元法。
+
+当$x>0$时，令$x=e^t$，则$t=\ln x$，$\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y}{\textrm{d}t}\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}$，$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x}\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x^2}\dfrac{\textrm{d}^2y}{\textrm{d}t^2}$，方程化为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+(p-1)\dfrac{\textrm{d}y}{\textrm{d}t}+qy=f(e^t)$，解出结果，组后用$t=\ln x$回代。
+
+当$x<0$是，令$x=-e^t$，同理可得。
+
+**例题：**求欧拉方程$x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+4x\dfrac{\textrm{d}y}{\textrm{d}x}+2y=0$（$x>0$）的通解。
+
+解：可以直接利用公式，变为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+3\dfrac{\textrm{d}y}{\textrm{d}t}+2y=0$
+
+即$y''+3y'+2y=0$，特征方程$\lambda^2+3\lambda+2=0$，$\lambda_1=-1$，$\lambda_2=-2$。
+
+$\therefore y=C_1e^{-x}+C_2e^{-2x}$。代入$x=e^t$，$y=\dfrac{C_1}{x}+\dfrac{C_2}{x^2}$。

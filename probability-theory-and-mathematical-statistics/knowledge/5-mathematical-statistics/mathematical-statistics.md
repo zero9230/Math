@@ -1,0 +1,361 @@
+---
+author:
+- Didnelpsun
+title: 标题
+---
+
+# 总体与样本
+
+## 总体定义
+
+[**定义：**]{style="color: violet"}研究对象的全体称为**总体**，组成总体的每一个元素称为**个体**。
+
+## 样本
+
+### 定义
+
+[**定义：**]{style="color: violet"}$n$个相互独立且域总体$X$有相同概率分布的随机变量$X_1,X_2,\cdots,X_n$所组成的整体$(X_1,X_2,\cdots,X_n)$称为来自总体$X$，容量为$n$个一个**简单随机样本**，简称**样本**。一次抽样结果的$n$个具体值$(x_1,x_2,\cdots,x_n)$称为来自样本$X_1,X_2,\cdots,X_n$的一个**观测值**或**样本值**。
+
+在概率论中称为独立同分布，而在数理统计就称为简单随机样本。
+
+### 分布
+
+对于容量为$n$的样本$X_1,X_2,\cdots,X_n$有如下定理：假设总体$X$的分布函数为$F(x)$（概率密度为$f(x)$，或概率分布为$p_i=P\{X=x_i\}$），则$(X_1,X_2,\cdots,X_n)$的分布函数为$F(x_1,x_2,\cdots,x_n)=\prod\limits_{i=1}^nF(x_i)$。
+
+对于离散型随机变量联合分布：$F(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)=\prod\limits_{i=1}^nP\{X_i=x_i\}$。
+
+对于连续型随机变量联合概率密度：$f(x_1,x_2,\cdots,x_n)=\prod\limits_{i=1}^nf(x_i)$。
+
+# 统计量与分布
+
+## 统计量
+
+设$X_1,X_2,\cdots,X_n$来自总体$X$的一个样本，$g(x_1,x_2,\cdots,x_n)$为$n$元函数，若$g$中不含有任何未知参数，则称$g(X_1,X_2,\cdots,X_n)$为样本$X_1,X_2,\cdots,X_n$的一个**统计量**。若$(x_1,x_2,\cdots,x_n)$为样本值，则称$g(x_1,x_2,\cdots,x_n)$为$g(X_1,X_2,\cdots,X_n)$的**观测值**。
+
+## 常用统计量
+
+-   样本均值：$\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^nX_i$。
+
+-   样本方差：$S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X})^2$。
+
+-   样本标准差：$S=\sqrt{\dfrac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X})^2}$。
+
+-   样本$k$阶（原点）矩：$A_k=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^k$（$k=1,2,\cdots$）。
+
+-   样本$k$中心矩：$B_k=\dfrac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X})^k$（$k=1,2,\cdots$）。
+
+## 顺序统计量
+
+### 概念
+
+将样本$X_1,X_2,\cdots,X_n$的$n$个观测量按其值从小到大的顺序排列，得到$X_{(1)}\leqslant X_{(2)}\leqslant\cdots\leqslant X_{(n)}$。
+
+随机变量$X_{(k)}$（$k=1,2,\cdots,n$）称为**第$k$顺序统计量**，其中$X_{(1)}$是最小顺序统计量，而$X_{(n)}$是最大顺序统计量。
+
+$X_{(n)}$的分布函数为$F_{(n)}(x)=[F(x)]^n$，概率密度为$f_{(n)}(x)=n[F(x)]^{n-1}f(x)$。
+
+证明：$F_{(n)}(x)=P\{X_{(n)}\leqslant x\}=P\{\max\{x_1,\cdots,x_n\}\leqslant x\}=P\{x_1\leqslant x,\cdots,x_n\leqslant x\}=P\{x_1\leqslant x\}\cdots P\{x_n\leqslant x\}=F_{(1)}(x)\cdots F_{(n)}(x)=[F(x)]^n$。
+
+$X_{(1)}$的分布函数为$F_{(1)}(x)=1-[1-F(x)]^n$，概率密度为$f_{(1)}(x)=n[1-F(x)]^{n-1}f(x)$。
+
+证明：$F_{(1)}(x)=P\{X_{(1)}\leqslant x\}=P\{\min\{x_1,\cdots,x_n\}\leqslant x\}=1-P\{\min\{x_1,\cdots$\
+$,x_n\}>x\}=1-P\{x_1>x,\cdots,x_n>x\}=1-P\{x_1>x\}\cdots P\{x_n>x\}=1-[1-P\{x_1\leqslant x\}]\cdots[1-P\{x_n\leqslant x\}]=1-[1-F_{(1)}(x)]\cdots[1-F_{(n)}(x)]=1-[1-F(x)]^n$。
+
+### 性质
+
+设总体$X$的期望$EX=\mu$，方差$DX=\sigma^2$，样本$X_1,X_2,\cdots,X_n$取自$X$，$\overline{X}$和$S^2$分别为样本的均值和方差，则：
+
+-   $EX_i=\mu$。
+
+-   $DX_i=\sigma^2$。
+
+-   $E\overline{X}=EX=\mu$。
+
+-   $D\overline{X}=D\left(\dfrac{1}{n}\sum\limits_{i=1}^nx_i\right)=\dfrac{1}{n^2}n\sigma^2=\dfrac{1}{n}DX=\dfrac{\sigma^2}{n}$。
+
+-   $E(S^2)=E\left(\dfrac{1}{n-1}\sum\limits_{i=1}^n(x_i-\overline{x})^2\right)=E\left(\dfrac{1}{n-1}\sum\limits_{i=1}^n(x_i^2-2x_i\overline{x}+\overline{x}^2)\right)=$\
+    $E\left(\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nx_i^2-2\overline{x}\cdot\sum\limits_{i=1}^nx_i+n\overline{x}^2\right)\right)=E\left(\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nx_i^2-n\overline{x}^2\right)\right)=$\
+    $\dfrac{1}{n-1}E\left(\sum\limits_{i=1}^nx_i^2-n\overline{x}^2\right)=\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nEx_i^2-nE\overline{x}^2\right)=\dfrac{n}{n-1}[(Ex_i)^2+Dx_i-(E\overline{x})^2-D\overline{x}]=\dfrac{n}{n-1}\left(\mu^2+\sigma^2-\mu^2-\dfrac{\sigma^2}{n}\right)=DX=\sigma^2$。
+
+## 三大分布
+
+### $\chi^2$分布
+
+#### 概念
+
+[**定义：**]{style="color: violet"}若随机变量$X_1,X_2,\cdots,X_n$相互独立，且都服从标准正态分布，则随机变量$X=\sum\limits_{i=1}^nX_i^2$服从自由度为$n$的$\chi^2$分布，记为$X\sim\chi^2(n)$，特别地$X_i^2\sim\chi^2(1)$。
+
+对给定的$\alpha$（$0<\alpha<1$）称满足$P\{\chi^2>\chi_\alpha^2(n)\}=\int_{\chi_\alpha^2(n)}^{+\infty}f(x)\,\textrm{d}x=\alpha$的$\chi_\alpha^2(n)$为$\chi^2(n)$分布的**上$\alpha$分位点**。
+
+#### 性质
+
+-   若$X_1\sim\chi^2(n_1)$，$X_2\sim\chi^2(n_2)$，$X_1X_2$相互独立，则$X_1+X_2\sim\chi^2(n_1+n_2)$。一般，若$X_i\sim\chi^2(n_i)$（$i=1,2,\cdots,m$），$X_1,X_2,\cdots,X_m$相互独立，则$\sum\limits_{i=1}^mX_i\sim\chi^2\left(\sum\limits_{i=1}^mn_i\right)$。
+
+-   若$X\sim\chi^2(n)$，则$EX=n$，$DX=2n$。
+
+### $t$分布
+
+#### 概念
+
+也称为学生分布。
+
+若随机变量$X\sim N(0,1)$，$Y\sim\chi^2(n)$，$XY$相互独立，则随机变量$t=\dfrac{X}{\sqrt{Y/n}}$服从自由度为$n$的$t$分布，记为$t\sim t(n)$。
+
+当$t\to\infty$时，$t$分布就是标准正态分布。其是偶函数，所以$Et=0$。
+
+t分布用于根据小样本来估计呈正态分布且方差未知的总体的均值。
+
+#### 性质
+
+由$t$分布的概率密度$f(x)$图形的对称性可知$P\{t>-t_\alpha(n)\}=P\{t>t_{1-\alpha}(n)\}$，所以$t_{1-\alpha}(n)=-t_\alpha(n)$。
+
+### $F$分布
+
+#### 概念
+
+若随机变量$X\sim\chi^2(n_1)$，$Y\sim\chi^2(n_2)$，且$X$与$Y$相互独立，则$F=\dfrac{X/n_1}{Y/n_2}$服从自由度为$(n_1,n_2)$的$F$分布，记为$F\sim F(n_1,n_2)$，其中$n_1$为第一自由度，$n_2$为第二自由度。
+
+#### 性质
+
+-   若$F\sim F(n_1,n_2)$，则$\dfrac{1}{F}\sim F(n_2,n_1)$。
+
+-   $F_{1-\alpha}(n_1,n_2)=\dfrac{1}{F_\alpha}(n_2,n_1)$。
+
+证明性质二：记$F\sim F(n_2,n_1)$。
+
+$\therefore P\{F>F_\alpha(n_2,n_1)\}=\alpha$，$P\{F\leqslant F_\alpha(n_2,n_1)\}=1-\alpha$。
+
+取倒数：$P\left\{\dfrac{1}{F}\geqslant\dfrac{1}{F_\alpha(n_2,n_1)}\right\}=1-\alpha$。
+
+又根据性质1：$\dfrac{1}{F}\sim F(n_1,n_2)$，$P\{\dfrac{1}{F}\geqslant F_{1-\alpha}(n_1,n_2)\}=1-\alpha$。
+
+即$F_{1-\alpha}(n_1,n_2)=\dfrac{1}{F_\alpha}(n_2,n_1)$。
+
+## 正态总体下结论
+
+设$X_1,X_2,\cdots,X_n$是来自正态总体$N(\mu,\sigma^2)$的一个样本，$\overline{X}$，$S^2$分别是样本的均值和方差，则：
+
+1.  $\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，即$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma}\sim N(0,1)$。
+
+2.  $\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。$\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$。
+
+3.  $\dfrac{(n-1)S^2}{\sigma^2}=\sum\limits_{i=1}^n\left(\dfrac{X_i-\overline{X}}{\sigma}\right)^2\sim\chi^2(n-1)$（$\mu$未知时，在2中用$\overline{X}$代替$\mu$）。
+
+4.  $\overline{X}$与$S^2$相互独立，$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$（$\sigma$未知时在1中用$S$代替$\sigma$）。进一步有$\dfrac{n(\overline{X}-\mu)^2}{S^2}\sim F(1,n-1)$。
+
+# 参数点估计
+
+## 概念
+
+[**定义：**]{style="color: violet"}设总体$X$的分布函数为$F(x;\theta)$，其中$\theta$为一个未知参数，$X_1,X_2,\cdots,$\
+$X_n$是取自总体$X$的一个样本。由样本构造一个适当的统计量$\hat{\theta}(X_1,X_2,\cdots,X_n)$作为参数$\theta$的估计，称统计量$\hat{\theta}(X_1,X_2,\cdots,X_n)$为$\theta$的**估计量**，一般记为$\hat{\theta}=\hat{\theta}(X_1,X_2,\cdots,X_n)$。
+
+如果$x_1,x_2,\cdots,x_n$是样本的一个观察值，将其代入估计量$\hat{\theta}$中得到值$\hat{\theta}(x_1,$\
+$x_2,\cdots,x_n)$，并且此值作为未知参数$\theta$的参数值，统计值称这个值为未知参数$\theta$的**估计值**。
+
+建立一个适当的统计量作为未知参数$\theta$的估计量并以相应的观察值作为未知参数估计值的问题，就是参数$\theta$的**点估计问题**。
+
+## 方法
+
+### 矩估计法
+
+使用替换思想，用样本距来估计总体距。
+
+1.  写出总体$k$阶矩$\mu_k=E(X^k)$，其中$\mu$含有参数$\theta$。
+
+2.  写出样本$k$阶矩$A_k=\dfrac{1}{n}\sum\limits_{i=1}^nX^k$，$A_k$只与样本有关。
+
+3.  令总体$k$阶矩=样本$k$阶矩，即$E(X^k)=\dfrac{1}{n}\sum\limits_{i=1}^nX^k$，就得到了$\theta$的方程。
+
+**例题：**来自总体的$X$的简单随机样本$X_1,X_2,\cdots,X_n$，总体$X$的概率分布为$X\sim\left(\begin{array}{ccc}
+    -1 & 0 & 2 \\
+    2\theta & \theta & 1-3\theta
+\end{array}\right)$，其中$0<\theta<\dfrac{1}{3}$，求参数$\theta$的矩估计量。
+
+解：令$\overline{X}=EX$，即$\dfrac{1}{n}\sum\limits_{i=1}^nX_i=(-1)2\theta+0\theta+2(1-3\theta)=2-8\theta$。
+
+所以$\hat{\theta}=\dfrac{2-\overline{X}}{8}$。
+
+**例题：**来自总体的$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
+    (1+\theta)x^\theta, & 0<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$，其中$\theta>-1$为未知参数，设$X_1,X_2,\cdots,X_n$为来自总体$X$的样本容量为$n$的简单随机样本，求$\theta$的矩估计量。
+
+解：令$\overline{X}=EX$，$EX=\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x=\int_0^1x(1+\theta)x^\theta\,\textrm{d}x=(1+\theta)\dfrac{x^{\theta+2}}{\theta+2}\bigg|_0^1=\dfrac{1+\theta}{2+\theta}$。
+
+解得$\hat{\theta}=\dfrac{2\overline{X}-1}{1-\overline{X}}$。
+
+### 最大似然估计
+
+#### 定义
+
+对未知参数$\theta$进行估计时，在该参数可能取值的范围$I$内选取，使得样本获得次观测值$x_1,x_2,\cdots,x_n$的概率最大的参数值$\hat{\theta}$作为$\theta$的估计，这样的$\hat{\theta}$最有利于$x_1,x_2,\cdots,x_n$的出现。
+
+设总体$X$是离散型，其概率分布为$P\{X=x\}=p(x;\theta)$，$\theta\in I$，$\theta$为未知参数，$X_1,X_2\cdots,X_n$为$X$的一个样本，则$X_1,X_2,\cdots,X_n$取值为$x_1,x_2,\cdots,x_n$的概率为$P\{X_1=x_1,X_2=x_2,\cdots,X_n=x_n\}=\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)$。显然这个概率值为$\theta$的函数，记为$L(\theta)=L(x_1,x_2,\cdots,x_n;\theta)=\prod\limits_{i=1}^np(x_i;\theta)$。称$L(\theta)$为样本的**似然函数**。
+
+[**定义：**]{style="color: violet"}若存在$\hat{\theta}\in I$，使得$L(x_1,x_2,\cdots,x_n;\hat{\theta})=\max\limits_{\theta\in I}L(x_1,x_2,\cdots,x_n;\theta)$，则称$\hat{\theta}=\hat{\theta}(x_1,x_2,\cdots,x_n)$为参数$\theta$的**最大似然估计**，对应的统计量$\hat{\theta}(X_1,X_2,\cdots,X_n)$称为参数$\theta$的**最大似然估计量**。
+
+同理若总体$X$为连续型随机变量，其概率密度为$f(x;\theta)$，$\theta\in I$，则样本的**似然函数**为$L(\theta)=L(x_1,x_2,\cdots,x_n;\theta)=\prod\limits_{i=1}^nf(x_i;\theta)$.
+
+[**定义：**]{style="color: violet"}若存在$\hat{\theta}\in I$，使得$L(x_1,x_2,\cdots,x_n)=\max\limits_{\theta\in I}\prod\limits_{i=1}^nf(x_i;\theta)$，则称$\hat{\theta}=\hat{\theta}(x_1,x_2,\cdots,x_n)$为参数$\theta$的**最大似然估计**，对应的统计量$\hat{\theta}(X_1,X_2,\cdots,X_n)$称为参数$\theta$的**最大似然估计量**。
+
+#### 步骤
+
+1.  写出样本的似然函数。$L(\theta)=L(x_1,x_2,\cdots,x_n;\theta_1,\theta_2,\cdots,\theta_k)=\prod\limits_{i=1}^np(x_i;\theta_1,$\
+    $\theta_2,\cdots,\theta_k)$或$\prod\limits_{i=1}^nf(x_i;\theta_1,\theta_2,\cdots,\theta_k)$。
+
+2.  如果$p(x;\theta_1,\theta_2,\cdots,\theta_k)$或$f(x;\theta_1,\theta_2,\cdots,\theta_k)$关于$\theta_i$可微，则令$\dfrac{\partial L(\theta)}{\partial\theta_i}=0$或$\dfrac{\partial\ln L(\theta)}{\partial\theta_i}=0$。由于$L(\theta)$是乘积形式，且$\ln x$单调增，所以$L(\theta)$域$\ln L(\theta)$在同一$\theta$处取极值，所以更多采用后面一种对数似然方程组来解。求得$\theta_i$的最大似然估计量为$\hat{\theta}=\hat{\theta}(X_1,X_2,\cdots,X_n)$（$i=1,2,\cdots,k$）。
+
+3.  如果$p(x;\theta_1,\theta_2,\cdots,\theta_k)$或$f(x;\theta_1,\theta_2,\cdots,\theta_k)$不可微，或似然方程组无解，则应由定义用其他方法求$\hat{\theta}$，如当$L(\theta)$为$\theta$的单调函数时，$\hat{\theta}$为$\theta$的取值上限或下限。
+
+即将概率密度或概率分布连乘，然后取对数，再求导令其为0解出$\hat{\theta}$。
+
+**例题：**设总体$X$的概率分布为：
+
+   $X$       0                 1                2             3
+  ----- ------------ --------------------- ------------ -------------
+   $P$   $\theta^2$   $2\theta(1-\theta)$   $\theta^2$   $1-2\theta$
+
+其中$\theta\int\left(0,\dfrac{1}{2}\right)$为未知参数，从总体$X$中抽取容量为8的一组样本，其样本值为3，1，3，0，3，1，2，3。求$\theta$的矩估计值和最大似然估计值。
+
+解：首先将所有的概率相乘：$L(\theta)l=(1-2\theta)^4[2\theta(1-\theta)]^2\cdot\theta^2\cdot\theta^2=4\theta^6(1-\theta)^2(1-2\theta)^4$。
+
+对其求对数：$\ln L(\theta)=\ln4+6\ln\theta+2\ln(1-\theta)+4\ln(1-2\theta)$。
+
+对其求导：$\dfrac{\textrm{d}\ln L(\theta)}{\textrm{d}\theta}=\dfrac{6}{\theta}-\dfrac{2}{1-\theta}-\dfrac{8}{1-2\theta}=0$。解得$\theta=\dfrac{7\pm\sqrt{13}}{12}$。
+
+$0<\theta<\dfrac{1}{2}$，舍去正值，得到$\hat{\theta}=\dfrac{7-\sqrt{13}}{12}$。
+
+**例题：**来自总体的$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
+    (1+\theta)x^\theta, & 0<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$，其中$\theta>-1$为未知参数，设$X_1,X_2,\cdots,X_n$为来自总体$X$的样本容量为$n$的简单随机样本，求$\theta$的最大似然估计量。
+
+解：这是上面的矩估计的题目的延申。
+
+首先$L(\theta)=(1+\theta)x_1^\theta\cdot(1+\theta)x_2^\theta\cdots=(1+\theta)\cdot\prod\limits_{i=1}^nx_i^\theta$。
+
+取对数$\ln L(\theta)=n\ln(1+\theta)+\theta\sum\limits_{i=1}^n\ln x_i$
+
+对其求导：$\dfrac{\textrm{d}\ln L(\theta)}{\textrm{d}\theta}=\dfrac{n}{1+\theta}+\sum\limits_{i=1}^n\ln x_i=0$，解得$\hat{\theta}=-\dfrac{n}{\sum\limits_{i=1}^n\ln x_i}-1$。
+
+最大似然估计量为$-\dfrac{n}{\sum\limits_{i=1}^n\ln X_i}-1$。
+
+[注意：]{style="color: orange"}估计值用小写$x$，估计量用大写$X$。
+
+## 估计量平均标准
+
+不同的估计法所产生的估计量有所差异，需要有一套标准来评判估计量。
+
+### 无偏性
+
+[**定义：**]{style="color: violet"}若参数$\theta$的估计量$\hat{\theta}=\hat{\theta}(X_1,X_2,\cdots,X_n)$对一切$n$及$\theta\in I$，有$E\hat{\theta}=\theta$，则称$\hat{\theta}$为$\theta$的**无偏估计量**。
+
+**例题：**设$X_1,X_2,\cdots,X_n$是正态总体$X\sim N(\mu,\sigma^2)$的简单随机样本，为使$D=k\sum\lim\limits_{i=1}^n-1(X_{i+1}-X_i)^2$称为总体方差$\sigma^2$的无偏估计量，求$k$。
+
+解：已知总体方差为$\sigma^2$，所以代入：
+
+$ED=\sigma^2=kE(\sum\lim\limits_{i=1}^{n-1}(X_{i+1}-X_i)^2)=kE(\sum\limits_{i=1}^{n-1}(X_{i+1}^2-2X_iX_{i+1}+X_i^2))$。
+
+已知样本方差$S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X})^2=\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nX_i^2-n\overline{X}^2\right)$。所以为什么样本方差要除以$n-1$而不是$n$？可以利用无偏性来证明。
+
+证明：根据方差$DX_i=EX_i^2-E^2X_i$，从而$EX_i^2=DX_i+E^2X_i=\sigma^2+\mu^2$，类似$D\overline{X}=E(\overline{X}^2)-(E\overline{X})^2$，$D\overline{X}=D\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)=\dfrac{1}{n^2}\sum\limits_{i=1}^nDX_i=\dfrac{1}{n^2}n\sigma^2=\dfrac{\sigma^2}{n}$。
+
+$\therefore E(\overline{X}^2)=D\overline{X}+(E\overline{X})^2=\dfrac{\sigma^2}{n}+\mu^2$。
+
+所以对样本方差求期望：$ES^2=E\left(\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nX_i^2-n\overline{X}^2\right)\right)=\dfrac{1}{n-1}\\\left(\sum\limits_{i=1}^nE(X_i^2)-nE(\overline{X}^2)\right)=\dfrac{1}{n-1}\left(n(\sigma^2+\mu^2)-n\left(\dfrac{\sigma^2}{n}+\mu^2\right)\right)=\sigma^2$。
+
+### 有效性
+
+也称为最小方差性。只有同样的无偏性才能比较有效性。
+
+[**定义：**]{style="color: violet"}设$\hat{\theta_1}=\hat{\theta_1}(X_1,X_2,\cdots,X_n)$与$\hat{\theta_2}=\hat{\theta_2}(X_1,X_2,\cdots,X_n)$都是$\theta$的无偏估计量，若$D(\hat{\theta_1})<D(\hat{\theta_2})$，则$\hat{\theta_1}$比$\hat{\theta_2}$**有效**。
+
+$EX_i^2=EX_{i+1}^2=(EX_{i+1})^2+DX_{i+1}=\mu^2+\sigma^2$，$2EX_iE_{i+1}=2(EX_i)^2=2\mu^2$。
+
+代入：$=k\sum\limits_{i=1}^{n-1}(2\mu^2+2\sigma^2-2\mu^2)=2k\sigma^2(n-1)=\sigma$。解得$k=\dfrac{1}{2(n-1)}$。
+
+### 一致性
+
+也称为相合性。
+
+[**定义：**]{style="color: violet"}设$\hat{\theta}=\hat{\theta}(X_1,X_2,\cdots,X_n)$为未知参数$\theta$的估计量，若对任意$\epsilon>0$，有$\lim\limits_{n\to\infty}P\{\vert\hat{\theta}-\theta\vert<\epsilon\}=1$，即$\hat{\theta}\overset{P}{\longrightarrow}\theta(n\to\infty)$，则称$\hat{\theta}$为$\theta$的**一致估计量**（**相合估计量**）。
+
+# 参数区间估计与假设检验
+
+区间估计和假设检验都是基于小概率事件基本上不可能发生的情况。
+
+## 区间估计
+
+区间估计是根据样本估计总体期望$\mu$所在的区间。有两个参数，一个是区间长度，一个是落入概率。
+
+### 概念
+
+[**定义：**]{style="color: violet"}已知从总体$X$中取出一部分样本$X_n$，则这些样本的平均值$\overline{X}$不一定等于$X$的期望即应该的平均值$\mu$，但是其之间的差距应该不大，即差距较小的概率较大，从而表示为$P(\vert\overline{X}-\mu\vert<\Delta)=1-\alpha$，$\alpha$为**显著性水平**，其一般是一个较小的正数。而$1-\alpha$称为**置信度**或**置信水平**。
+
+[**定义：**]{style="color: violet"}$I=I(T,\theta)$，$T$为已知常量，$\theta$为未知参数，其分布$F$已知且与$\theta$无关，则$I$为**枢轴变量**。给定$1-\alpha$，确定$F$上的上$\dfrac{\alpha}{2}$分位数$Z-{\frac{\alpha}{2}}$，上$1-\dfrac{\alpha}{2}$分位数$Z_{1-\frac{\alpha}{2}}$，则$P\{Z_{1-\frac{\alpha}{2}}\leqslant I(T,\theta)\leqslant Z_{\frac{\alpha}{2}}=1-\alpha$。
+
+即$(\underline{\theta},\overline{\theta})$是参数$\theta$的置信度为$1-\alpha$的区间估计，则区间$(\underline{\theta},\overline{\theta})$包含参数$\theta$的概率为$1-\alpha$。
+
+### 正态总体均值的置信空间
+
+#### 估计$\mu$而$\sigma$已知
+
+假设$X\sim N(\mu,\sigma^2)$（若不服从正态分布就用中心极限定理来解决）。则$\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$。记$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=Z$，则$Z\sim N(0,1)$。
+
+其中置信区间为$(\mu-\Delta,\mu+\Delta)$。
+
+$\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$，从而中间面积为$1-\alpha$，得到两端面积$\dfrac{\alpha}{2}$。
+
+得到上$\alpha$分位数$Z_\frac{\alpha}{2}$，$\therefore\dfrac{\Delta}{\sigma/\sqrt{n}}=Z_\frac{\alpha}{2}$，解得$\Delta=Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}}$。
+
+代入：解得$\mu\in(\overline{X}-\Delta,\overline{X}+\Delta)=(\overline{X}-Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}},\overline{X}+Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}})$。
+
+这个$\mu$所处的区间就是**置信区间**，区间上限就是**置信上限**，区间下限就是**置信下限**。
+
+#### 估计$\mu$而$\sigma$未知
+
+当$\sigma$未知的时候就无法求出置信区间了，所以根据正态总体下的结论，用样本方差$S$代替方差$\sigma$，且$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$。
+
+所以$P\left(\left\vert\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\right\vert<\dfrac{\Delta}{S/\sqrt{n}}\right)=1-\alpha$，令$\dfrac{\overline{X}-\mu}{S/\sqrt{n}}=t$，所以$t\sim t(n-1)$。
+
+可得上$\alpha$分位点$t_\frac{\alpha}{2}(n-1)$，所以$\dfrac{\Delta}{S/\sqrt{n}}=t_\frac{\alpha}{2}(n-1)$，解得$\Delta=t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}$。
+
+代入：解得$\mu\in(\overline{X}-\Delta,\overline{X}+\Delta)=\mu\in(\overline{X}-t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}},\overline{X}+t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}})$。
+
+综上：求置信空间的关键是求$\Delta$：
+
+     参数         条件                                                                      置信区间
+  ---------- -------------- ----------------------------------------------------------------------------------------------------------------------------------------
+    $\mu$     $\sigma$已知   $\left(\overline{X}-\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\overline{X}+\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}}\right)$
+              $\sigma$未知     $\left(\overline{X}-\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\overline{X}+\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1)\right)$
+   $\sigma$    $\mu$未知               $\left(\dfrac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}\right)$
+
+## 假设检验
+
+已经有了对期望$\mu$的假设，对这个假设进行检验。若所处的区间在拒绝域中，就拒绝原假设。
+
+### 思想
+
+已经有了假设样本期望为$\mu=\mu_0$。则$P(\vert\overline{X}-\mu_0\vert<\Delta)=1-\alpha$，所以取对立事件$P(\vert\overline{X}-\mu_0\vert\geqslant\Delta)=\alpha$，这是一个小概率事件。若对这个小概率事件发生了，则否定原假设。
+
+若$\sigma$已知，则$\Delta=Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}}$，则区间$(-\infty,\mu_0-\Delta]\cup[\mu_0+\Delta,+\infty)$称为**拒绝域**，即小概率发生的区间。
+
+若$\sigma$未知，则$\Delta=t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}$，拒绝域一样。
+
+设$\theta$为总体位置参数，$\theta_0$为已知常数，则假设检验类型：
+
+     类型                      $H_0$                    $H_1$
+  ---------- ------ --------------------------- ----------------------
+   双边检验              $\theta=\theta_0$       $\theta\neq\theta_0$
+   单边检验   右边   $\theta\leqslant\theta_0$    $\theta>\theta_0$
+              左边   $\theta\geqslant\theta_0$    $\theta<\theta_0$
+
+### 正态总体下的六大检验与拒绝域
+
+::: center
+:::
+
+## 两类错误
+
+显著性水平$\alpha$实际上是犯第一类错误的概率的上界。

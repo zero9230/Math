@@ -1,0 +1,534 @@
+---
+author:
+- Didnelpsun
+title: 线性方程组
+---
+
+# 基本概念
+
+矩阵是根据线性方程组得到。线性方程组和向量组本质上是一致的。
+
+## 线性方程组与矩阵
+
+::: multicols
+2
+
+$\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=0 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=0
+    \end{cases}$
+
+$n$元齐次线性方程组。
+
+$\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+    \end{cases}$
+
+$n$元非齐次线性方程组。
+:::
+
+$m$是方程个数，即方程组行数，$n$是方程未知数个数，即类似方程组的列数。
+
+对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其**零解**，若有一组不全为零的解，则称为其**非零解**。其一定有零解，但是不一定有非零解。
+
+对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。
+
+令**系数矩阵**$A_{m\times n}=\left(
+    \begin{array}{ccc}
+        a_{11} & \cdots & a_{1n} \\
+        \cdots \\
+        a_{m1} & \cdots & a_{mn}
+    \end{array}
+\right)$，**未知数矩阵**$x_{n\times 1}=\left(
+    \begin{array}{c}
+        x_1 \\
+        \cdots \\
+        x_n
+    \end{array}
+\right)$，**常数项矩阵**$b_{m\times 1}=\left(
+    \begin{array}{c}
+        b_1 \\
+        \cdots \\
+        b_m
+    \end{array}
+\right)$，**增广矩阵**$B_{m\times(n+1)}=\left(
+    \begin{array}{c:c}
+        \begin{matrix}
+            a_{11} & \cdots & a_{1n}\\
+            \cdots \\
+            a_{m1} & \cdots & a_{mn}
+        \end{matrix}&
+        \begin{matrix}
+            b_1\\
+            \\
+            b_n
+        \end{matrix}
+    \end{array}
+\right)$。
+
+所以$AX=\left(
+    \begin{array}{c}
+        a_11x_1+\cdots+a_{1n}x_n \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n
+    \end{array}
+\right)$。
+
+从而$AX=b$等价于$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$，当$b=O$就是齐次线性方程。
+
+从而矩阵可以简单表示线性方程。
+
+## 矩阵乘法与线性变换
+
+矩阵乘法实际上就是线性方程组的线性变换，将一个变量关于另一个变量的关系式代入原方程组，得到与另一个变量的关系。
+
+$\begin{cases}
+    y_1=a_{11}x_1+a_{12}x_2+\cdots+a_{1s}x_s \\
+    \cdots \\
+    y_m=a_{m1}x_1+a_{m2}x_2+\cdots+a_{ms}x_s
+\end{cases}\begin{cases}
+    x_1=b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n \\
+    \cdots \\
+    x_s=b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n
+\end{cases}$
+
+原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：
+
+$\begin{cases}
+    y_1=a_{11}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
+    \cdots \\
+    y_m=a_{m1}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{ms}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n)
+\end{cases}$
+
+$=\begin{cases}
+    y_1=(a_{11}b_{11}+\cdots+a_{1s}b_{s1})t_1+\cdots+(a_{11}b_{1n}+\cdots+a_{1s}b_{sn})t_n \\
+    \cdots \\
+    y_m=(a_{m1}b_{11}+\cdots+a_{ms}b_{s1})t_1+\cdots+(a_{m1}b_{1n}+\cdots+a_{ms}b_{sn})t_m
+\end{cases}$
+
+这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：
+
+$\left(\begin{array}{ccc}
+    a_{11} & \cdots & a_{1s} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1} & \cdots & a_{ms}
+\end{array}\right)_{m\times s}\left(\begin{array}{ccc}
+    b_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    b_{s1} & \cdots & b_{sn}
+\end{array}\right)_{s\times n}$
+
+$=\left(\begin{array}{ccc}
+    a_{11}b_{11}+\cdots+a_{1s}b_{s1} & \cdots & a_{11}b_{1n}+\cdots+a_{1s}b_{sn} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1}b_{11}+\cdots+a_{ms}b_{s1} & \cdots & a_{m1}b_{1n}+\cdots+a_{ms}b_{sn}
+\end{array}\right)_{m\times n}\text{。}$
+
+## 线性方程组的解
+
+对于一元一次线性方程：$ax=b$：
+
+-   当$a\neq 0$时，可以解得$x=\dfrac{b}{a}$。
+
+-   当$a=0$时，若$b\neq 0$时，无解，若$b=0$时，无数解。
+
+当推广到多元一次线性方程组：$Ax=b$，如何求出$x$这一系列的$x$的解？
+
+从数学逻辑上看，已知多元一次方程，有$m$个约束方程，有$n$个未知数，假定$m\leqslant n$。
+
+当$m<n$时，就代表有更多的未知变量不能被方程约束，从而有$n-m$个自由变量，所以就是无数解，解组中其他解可以由自由变量来表示。无穷多解需要一个解来代表其他解，这个解就是**基础解系**。
+
+当$m=n$时代表约束与变量数量相等，此时又要分三种情况。
+
+当所有的约束条件其中存在线性相关，即一部分约束条件可以由其他约束表示，则代表这部分约束条件是没用的，实际上的约束条件变少，从而情况等于$m<n$，结果是无数解。
+
+当所有的约束条件不存在线性相关，但是一部分约束条件互相矛盾，则约束条件下就无法解出解，从而结果是无实数解。
+
+当所有的约束条件不存在线性相关，且相互之间不存在矛盾情况，这时候才会解出一个实数解，从而结果是有唯一实解。
+
+若使用矩阵来解决线性方程组的问题，其系数矩阵$A_{m\times n}$。
+
+对于$A\neq O$，则$Ax=b$，若存在一个矩阵$B_{n\times n}$类似$\dfrac{1}{a}$，使得$BAx=Bb$，解得$Ex=x=Bb$，这个$B$就是$A$的逆矩阵。
+
+对于$A=O$即不可逆，需要判断$b$是否为0，若不是则无实数解，若是则无穷解，这种判断需要用到增广矩阵，需要用到矩阵的秩判断。
+
+## 线性方程组的矩阵解表示
+
+已知对于线性方程组$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$。
+
+按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：
+
+$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{array}\right)=b\text{，}\left(\begin{array}{c}
+    a_{11} \\
+    a_{21} \\
+    \vdots \\
+    a_{m1}
+\end{array}\right)x_1+\cdots+\left(\begin{array}{c}
+    a_{1n} \\
+    a_{2n} \\
+    \vdots \\
+    a_{mn}
+\end{array}\right)x_n=\left(\begin{array}{c}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m
+\end{array}\right)\text{。}$
+
+这三种都是解的表示方法。
+
+# 具体线性方程
+
+## 齐次方程组
+
+即$Ax=0$。其中$A$有$m$行$n$列。
+
+### 有解条件
+
+必有一个零解。
+
+有解条件讨论是否列满秩问题，即方程组是否能约束全部变量。
+
+对系数矩阵进行行变换，若$r(A)=m$，即使行满秩若$m<n$则列不满秩，那么还是无法约束所有变量；若$r(A)=n$，即使行不满秩但是列满秩，所以还是能约束所有变量。
+
+当$r(A)=n$时，即$\alpha_1,\alpha_2,\cdots,\alpha_n$线性无关，则方程组有唯一零解。
+
+当$r(A)=r<n$时，即$\alpha_1,\alpha_2,\cdots,\alpha_n$线性相关，则方程具有无穷多个非零解，具有$n-r$个线性无关解（自由变量）。
+
+### 解的性质
+
+若$A\xi_1=0$，$A\xi_2=0$，则$A(k_1\xi_1+k_2\xi_2)=0$。
+
+### 解的结构
+
+基础解系[**定义：**]{style="color: violet"}假如$\xi_1,\xi_2,\cdots,\xi_{n-r}$满足：是方程组$Ax=0$的解；线性无关；方程组$Ax=0$的任一解均可由$\xi_1,\xi_2,\cdots,\xi_{n-r}$线性表出，则称$\xi_1,\xi_2,\cdots,\xi_{n-r}$为$Ax=0$的**基础解系**。
+
+当$r(A)<n$时讨论基础解系。
+
+通解[**定义：**]{style="color: violet"}设$\xi_1,\xi_2,\cdots,\xi_{n-r}$是$Ax=0$的基础解系，则$k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}$是方程组$Ax=0$的通解，$k_1,k_2,\cdots,k_{n-r}$为任意常数。
+
+### 求解过程
+
+1.  将系数矩阵$A$作为**初等行变换**后化为阶梯形矩阵或最简阶梯形矩阵$B$，因为初等行变换将方程组化为同解方程组，所以$Ax=0$与$Bx=0$同解，只需解$Bx=0$，设$r(A)=r$。其中$A$为$m$行$n$列，$m$为约束方程组个数，$n$为变量个数。
+
+2.  在$B$中按列找到一个秩为$r$的子矩阵，即在每排阶梯都选出一列组合成子矩阵，则剩余列位置的未知数就是自由变量。（极大线性无关组）
+
+3.  按基础解析定义求出$\xi_1,\xi_2,\cdots,\xi_{n-r}$，并写出通解。
+
+**例题：**求齐次线性方程组$\left\{\begin{array}{l}
+    x_1+x_2-3x_4-x_5=0 \\
+    x_1-x_2+2x_3-x_4=0 \\
+    4x_1-2x_2+6x_3+3x_4-4x_5=0 \\
+    2x_1+4x_2-2x_3+4x_4-7x_5=0
+\end{array}\right.$的通解。
+
+解：系数矩阵$A=\left(\begin{array}{ccccc}
+    1 & 1 & 0 & -3 & -1 \\
+    1 & -1 & 3 & -1 & 0 \\
+    4 & -2 & 6 & 3 & -4 \\
+    2 & 4 & -2 & 4 & -7
+\end{array}\right)$，然后对其行变换，得到：
+
+$=\left(\begin{array}{ccccc}
+    1 & 1 & 0 & -3 & -1 \\
+    0 & -2 & 2 & 2 & 1 \\
+    0 & 0 & 0 & 3 & -1 \\
+    0 & 0 & 0 & 0 & 0
+\end{array}\right)=\left(\begin{array}{ccccc}
+    1 & 0 & 1 & 0 & -\dfrac{7}{6} \medskip \\
+    0 & 1 & -1 & 0 & -\dfrac{5}{6} \medskip \\
+    0 & 0 & 0 & 1 & -\dfrac{1}{3} \\
+    0 & 0 & 0 & 0 & 0
+\end{array}\right)$，$r(A)=3$。
+
+然后找子矩阵，第一台阶选$C_1$，第二台阶选$C_2$或$C_3$，第三台阶选$C_4$或$C_5$，随便找一个，如$(C_1,C_2,C_4)$为子矩阵，则$C_3$，$C_5$所代表的未知数$x_3$，$x_5$就是自由变量。
+
+所以选择两个分量$\xi_1=(\xi_{11},\xi_{12},\xi_{13},\xi_{14},\xi_{15})^T$和$\xi_2=(\xi_{21},\xi_{22},\xi_{23},\xi_{24},\xi_{25})^T$作为基础解系。
+
+因为此时选择$x_3$，$x_5$为自由变量，所以$x_3$和$x_5$所对应的$\xi_{13}$、$\xi_{15}$、$\xi_{23}$、$\xi_{25}$可以任意取，但是为了保证秩为2，所以让$\xi_{13}=1$、$\xi_{15}=0$、$\xi_{23}=0$、$\xi_{25}=1$。这四个分量组成的矩阵线性无关，原矩阵线性无关，延长矩阵线性无关，从而$\xi_1$和$\xi_2$必然线性无关。
+
+所以此时已经给定两组解，一种是$\xi_1$的$x_3=1$，$x_5=0$，另一种是$\xi_2$的$x_3=0$，$x_5=1$，这样就只有三个未知数和三个方程，分别代入$A$矩阵所代表的方程组中（代入行阶梯矩阵就可以，不用代入最简行阶梯矩阵）：
+
+$\left\{\begin{array}{l}
+    1\cdot x_1+1\cdot x_2+0\cdot x_3-3\cdot x_4-1\cdot x_5=0 \\
+    0\cdot x_1-2\cdot x_2+2\cdot x_3+2\cdot x_4+1\cdot x_5=0 \\
+    0\cdot x_1+0\cdot x_2+0\cdot x_3+3\cdot x_4-1\cdot x_5=0
+\end{array}\right.$，分别代入：
+
+$\xi_1$：$\left\{\begin{array}{l}
+    1\cdot x_1+1\cdot x_2+0\cdot1-3\cdot x_4-1\cdot0=0 \\
+    0\cdot x_1-2\cdot x_2+2\cdot1+2\cdot x_4+1\cdot0=0 \\
+    0\cdot x_1+0\cdot x_2+0\cdot1+3\cdot x_4-1\cdot0=0
+\end{array}\right.$，$\xi_1=(-1,1,1,0,0)^T$。
+
+$\xi_2$：$\left\{\begin{array}{l}
+    1\cdot x_1+1\cdot x_2+0\cdot0-3\cdot x_4-1\cdot1=0 \\
+    0\cdot x_1-2\cdot x_2+2\cdot0+2\cdot x_4+1\cdot1=0 \\
+    0\cdot x_1+0\cdot x_2+0\cdot0+3\cdot x_4-1\cdot1=0
+\end{array}\right.$，$\xi_2=(7,5,0,2,6)^T$。
+
+所以通解为$k_1\xi_1+k_2\xi_2=k_1(-1,1,1,0,0)^T+k_2(7,5,0,2,6)^T$。
+
+## 非齐次方程组
+
+即$Ax=b$，$b$为不全为0的列向量。
+
+### 有解条件
+
+$A=[\alpha_1,\alpha_2,\cdots,\alpha_n]$，其中$\alpha_j=[a_{1j},a_{2j},\cdots,a_{mj}]^T$，$j=1,2,\cdots,n$。
+
+当$r(A)\neq r([A,b])$时（$r(A)+1=r([A,b])$），即$b$不能被$A$线性表出，则方程组无解。
+
+当$r(A)=r([A,b])=n$时，即$b$能被$A$线性表出，$A$线性无关，$[A,b]$线性相关，矩阵列满秩，则方程组有唯一解。
+
+当$r(A)=r([A,b])=r<n$时，即$b$能被$A$线性表出，$A$线性相关，矩阵列降秩，则方程组有无穷多解。
+
+### 解的性质
+
+若$\eta_1,\eta_2,\eta$是非齐次线性方程组$Ax=b$的解，$\xi$是对应齐次线性方程组$Ax=0$的解，则：
+
+$\eta_1-\eta_2$是$Ax=0$的通解。
+
+$k\xi+\eta$是$Ax=b$的解。
+
+### 求解过程
+
+将系数矩阵和常数项矩阵合并为一个增广矩阵，对增广矩阵进行行变换变为阶梯形矩阵，求出对应齐次线性方程组的通解，最后假设一个非齐次线性方程组的特解。
+
+1.  写出$Ax=b$的导出方程组$Ax=0$并求出其通解$k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}$。
+
+2.  求出$Ax=b$的一个特解$\eta$。
+
+3.  $Ax=b$的通解为$k_1\xi_1+k_2\xi_2+\cdots+k_{n-r}\xi_{n-r}+\eta$。
+
+**例题：**求非齐次线性方程组$\left\{\begin{array}{l}
+    x_1+5x_2-x_3-x_4=-1 \\
+    x_1-2x_2+x_3+3x_4=3 \\
+    3x_1+8x_2-x_3+x_4=1 \\
+    x_1-9x_2+3x_3+7x_4=7
+\end{array}\right.$的通解。
+
+解：对方程组提取出增广矩阵并进行行变换：
+
+$\left(\begin{array}{c:c}
+    \begin{matrix}
+        1 & 5 & -1 & -1 \\
+        1 & -2 & 1 & 3 \\
+        3 & 8 & -1 & 1 \\
+        1 & -9 & 3 & 7
+    \end{matrix}&
+    \begin{matrix}
+        -1 \\
+        3 \\
+        1 \\
+        7
+    \end{matrix}
+\end{array}\right)=\left(\begin{array}{c:c}
+    \begin{matrix}
+        1 & 5 & -1 & -1 \\
+        0 & -7 & 2 & 4 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{matrix}&
+    \begin{matrix}
+        -1 \\
+        4 \\
+        0 \\
+        0
+    \end{matrix}
+\end{array}\right)$。
+
+然后求齐次方程的通解：找两列作为子矩阵，如$x_1$，$x_2$，则$x_3$，$x_4$作为自由变量，设两个$\xi_1=(\xi_{11},\xi_{12},1,0)^T$和$\xi_2=(\xi_{21},\xi_{22},0,1)^T$。
+
+解得$\xi_1=(-3,2,7,0)^T$，$\xi_2=(-13,4,0,7)^T$（为了得到整数通解都乘了7）。
+
+通解为$k_1\xi_1+k_2\xi_2=k_1(-3,2,7,0)^T+k_2(-13,4,0,7)^T$。
+
+然后求其非齐次的特解，让两个自由变量为0减少计算，即$\eta=(\eta_1,\eta_2,0,0)^T$代入方程得到$\eta=\left(\dfrac{13}{7},-\dfrac{4}{7},0,0\right)^T$。
+
+所以通解为$k_1(-3,2,7,0)^T+k_2(-13,4,0,7)^T+\left(\dfrac{13}{7},-\dfrac{4}{7},0,0\right)^T$。
+
+[注意：]{style="color: orange"}通解的向量可以同乘一个数，因为其表示的是一个关系而不是具体数，但是特解不能同乘一个数，因为其表示的是一个具体的数。
+
+## 克拉默法则
+
+克拉默法则本来是矩阵中的运算法则，但是与方程组有更密切的关系，所以放到线性方程组中。
+
+[**定理：**]{style="color: aqua"}若$Ax=b$的系数矩阵$A$的行列式$\vert A\vert\neq0$，则方程有唯一解，且$x_i=\dfrac{\vert A_i\vert}{\vert A\vert}$，其中$A_i$为把系数矩阵$A$的第$i$列的元素用方程组右侧的常数项代替后所得到的$n$阶矩阵。
+
+# 抽象线性方程
+
+## 解的判定
+
+$Ax=0$，总有解，至少有零解。
+
+$A_{m\times n}x=0$，当$r(A)=n$时，只有零解；当$r(A)<n$时，无穷多解。
+
+$A_{m\times n}x=b$时，当$r(A)=r([A,b])+1\neq r([A,b])$时，无解；当$r(A)=r([A,b])=n$时，有唯一解；当$r(A)=r([A,b])=r<n$时，无穷多解。
+
+当$Ax=0$只有零解时，$r(A)=n$，当$Ax=0$有无穷多解时，$r(A)=r<n$，都不能判定$r(A)$与$r([A,b])$的关系，若以$Ax=b$可能有解也可能无解。
+
+当$Ax=b$有唯一解时，$r(A)=r([A,b])=n$，所以$Ax=0$列满秩，只有零解。
+
+当$Ax=b$有无穷多解时，$r(A)=r([A,b])=r<n$，则$Ax=0$有无穷多解。
+
+当$A$行满秩，则$r(A)=r([A,b])$，则$Ax=\beta$必有解，因为原来无关，延长无关。
+
+所以已知非齐次解情况能推出齐次解情况，但是反之不能。
+
+## 解的性质
+
+非齐次通解=齐次的通解+非齐次一个特解。
+
+**例题：**$r(A_{4\times4})=2$，$\eta_1,\eta_2,\eta_3$为$Ax=b$的三个解向量，其中具有如下关系：
+
+$\left\{\begin{array}{l}
+    \eta_1-\eta_2=(-1,0,3,-4)^T \\
+    \eta_1+\eta_2=(3,2,1,-2)^T \\
+    \eta_3+2\eta_2=(5,1,0,3)^T
+\end{array}\right.$，求$Ax=b$的通解。
+
+解：$s=n-r(A)=4-2=2$，所以通解的基础解系中有两个分量$\xi_1$和$\xi_2$。
+
+所以需要解$Ax=0$，又存在三个解向量，所以$A\eta_1=A\eta_2=A\eta_3=b$，所以$A(\eta_1-\eta_2)=0$，所以$\eta_1-\eta_2=(-1,0,3,-4)^T$就是其中一个解，所以令$\xi_1=\eta_1-\eta_2=(-1,0,3,-4)^T$。
+
+然后根据所给出的$\eta$进行凑，$A(\eta_1+\eta_2)=2b=A(3,2,1,-2)^T$，$A(\eta_3+2\eta_2)=3b=A(5,1,0,3)^T$。所以$3A(\eta_1+\eta_2)-2A(\eta_3+2\eta_2)=0$，所以$A(3(\eta_1+\eta_2)-2(\eta_3+2\eta_2))=0$，所以令$\xi_2=3(\eta_1+\eta_2)-2(\eta_3+2\eta_2)=(-1,4,3,-12)^T$。
+
+最后找一个特解，$\because A(\eta_1+\eta_2)=2b$，$\therefore A\left(\dfrac{\eta_1+\eta_2}{2}\right)=b$，$\dfrac{\eta_1+\eta_2}{2}=\left(\dfrac{3}{2},1,\dfrac{1}{2},-1\right)^T$就是一个特解。
+
+所以通解为$k_1(-1,0,3,-4)^T+k_2(-1,4,3,-12)^T+\left(\dfrac{3}{2},1,\dfrac{1}{2},-1\right)^T$
+
+## 基础解系
+
+对于$A_{m\times n}x=0$，$r(A)=r$，若向量组$\alpha_1,\alpha_2,\cdots,\alpha_s$满足：$A\alpha_i=0$，$i=1,2,\cdots,s$；$\alpha_1,\alpha_2,\cdots,\alpha_s$线性无关；$s=n-r$，则称$\alpha_1,\alpha_2,\cdots,\alpha_s$为$Ax=0$的基础解系。
+
+**例题：**设$\xi_1,\xi_2,\xi_3$是方程组$Ax=0$的基础解系，则下列向量组也是方程组$Ax=0$的基础解系的是()。
+
+$A.\xi_1-\xi_2$，$\xi_2-\xi_3$，$\xi_3-\xi_1$$B.\xi_1+\xi_2$，$\xi_2-\xi_3$，$\xi_3+\xi_1$
+
+$C.\xi_1+\xi_2-\xi_3$，$\xi_1+2\xi_2+\xi_3$，$2\xi_1+3\xi_2$$D.\xi_1+\xi_2$，$\xi_2+\xi_3$，$\xi_3+\xi_1$
+
+解：需要判断基础解系是否线性无关，需要对应的行列式值非0。
+
+对于$D$：$(\xi_1+\xi_2$，$\xi_2+\xi_3$，$\xi_3+\xi_1)=(\xi_1,\xi_2,\xi_3)\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    1 & 1 & 0 \\
+    0 & 1 & 1
+\end{array}\right)\neq0$，所以$D$线性无关，从而为基础解系。
+
+**例题：**设$\xi_1=[1,-2,3,1]^T$，$\xi_2=[2,0,5,-2]^T$是齐次线性方程组$A_{3\times4}x=0$的解，且$r(A)=2$，则下列向量中是其解向量的是()。
+
+$A.\alpha_1=[1,-2,3,2]^T$$B.\alpha_2=[0,0.5,-2]^T$
+
+$C.\alpha_3=[-1,-6,-1,7]^T$$D.\alpha_4=[1,6,1,6]^T$
+
+解：若$\xi_1$和$\xi_2$为$Ax=0$的基，所以$\xi_1$和$\xi_2$应该能表示其解向量。
+
+所以将$\xi_1$和$\xi_2$与$\alpha_1,\alpha_2,\alpha_3,\alpha_4$分别联立为矩阵，进行初等行变换，查看是否有解，即新增广矩阵必须秩为2。
+
+$ABD$选项增广矩阵的秩都为3，所以不能表示，而只有$C$的为2，所以$C$可以表示。
+
+## 系数矩阵列向量与解
+
+对于齐次方程而言，其解是让$A$的线性组合为零向量时线性组合的系数，对于非齐次而言解是$b$由$A$线性表出的表出系数。
+
+所以方程的解就是描述列向量组之间数量关心的系数。
+
+**例题：**已知$A=[\alpha_1,\alpha_2,\alpha_3,\alpha_4]$，其中$\alpha_1,\alpha_2,\alpha_3,\alpha_4$是四维列向量，且$\alpha_1=2\alpha_2+\alpha_3$，$r(A)=3$，若$\beta=\alpha_1+2\alpha_2+3\alpha_3+4\alpha_4$，求线性方程组$Ax=\beta$的通解。
+
+解：$\because\alpha_1=2\alpha_2+\alpha_3$，$1\alpha_1-2\alpha_2-1\alpha_3+0\alpha_4=0$，即$A(1,-2,-1,0)^T=0$。
+
+又$r(A_{4\times4})=4$，$s=n-r(A)=4-3=1$，$\therefore\xi=(1,-2,-1,0)^T$。
+
+所以特解为$\beta$的系数：$(1,2,3,4)^T$，通解为$k(1,-2,-1,0)^T+(1,2,3,4)^T$。
+
+# 公共解
+
+1.  求两个方程组解的交集部分。可以联立两个方程求解。
+
+2.  求出$A_{m\times n}x=0$的通解$k_1\xi_1+k_2\xi_2+\cdots+k_s\xi_s$，这些$k$本来是独立的，然后代入$B_{m\times n}x=0$，求出$k_i(i=1,2,\cdots,s)$之间的关系，再代回$A_{m\times n}x=0$的通解中就得到公共解。
+
+3.  给出$A_{m\times n}x=0$的通解与$B_{m\times n}x=0$的通解联立：$k_1\xi_1+k_2\xi_2+\cdots+k_s\xi_s=l_1\eta_1+l_2\eta_2+\cdots+l_s\eta_s=0$，能解出$k_i$和$l_i$。
+
+**例题：**已知线性方程组$A=\left\{\begin{array}{l}
+    x_1+x_2=0 \\
+    x_2-x_4=0
+\end{array}\right.$，$B=\left\{\begin{array}{l}
+    x_1-x_2+x_3=0 \\
+    x_2-x_3+x_4=0
+\end{array}\right.$，求方程组的公共解。
+
+解：$A=\left(\begin{array}{cccc}
+    1 & 1 & 0 & 0 \\
+    0 & 1 & 0 & -1
+\end{array}\right)$，$B=\left(\begin{array}{cccc}
+    1 & -1 & 1 & 0 \\
+    0 & 1 & -1 & 1
+\end{array}\right)$。
+
+两个秩都为2，选择前两个分量为基子矩阵，后两个为通解分量。
+
+$\xi_1=(0,0,1,0)^T$，$\xi_2=(-1,1,0,1)^T$，$\eta_1=(0,1,1,0)^T$，$\eta_2=(-1,-1,0,1)^T$。
+
+$k_1\xi_1+k_2\xi_2=k_1(0,0,1,0)^T+k_2(-1,1,0,1)^T=(-k_2,k_2,k_1,k_2)^T$。
+
+$l_1\eta_1+l_2\eta_2=l_1(0,1,1,0)^T+l_2(-1,-1,0,1)^T=(-l_2,l_1-l_2,l_1,l_2)^T$。
+
+令$(-k_2,k_2,k_1,k_2)^T=(-l_2,l_1-l_2,l_1,l_2)^T$，所以解得$2k_2=k_1$。
+
+公共解为$(-k_2,k_2,2k_2,k_2)^T=k_2(-1,1,2,1)^T$。
+
+# 同解方程组
+
+若$A_{m\times n}x=0$和$B_{s\times n}x=0$有完全相同的解，就是同解方程组。
+
+$\therefore r(A)=r(B)=r([A,B]^T)$。
+
+**例题：**线性方程组$A=\left\{\begin{array}{l}
+    x_1+3x_3+5x_4=0 \\
+    x_1-x_2-2x_3+2x_4=0 \\
+    2x_1-x_2+x_3+3x_4=0
+\end{array}\right.$，在其基础上加一个方程$B=\left\{\begin{array}{l}
+    x_1+3x_3+5x_4=0 \\
+    x_1-x_2-2x_3+2x_4=0 \\
+    2x_1-x_2+x_3+3x_4=0 \\
+    4x_4+ax_2+bx_3+13x_4=0
+\end{array}\right.$，$ab$满足什么条件，$AB$是同解方程组。
+
+解：$B$在$A$的基础上增加一个方程，即多增加了约束，从而$B$的解一定为$A$的解的子集。所以只要$A$的解也满足$B$的解就是同解方程组。
+
+$A=\left(\begin{array}{cccc}
+    1 & 0 & 3 & 5 \\
+    0 & -1 & -5 & -3 \\
+    0 & 0 & 0 & -4
+\end{array}\right)$，$s=n-r=4-3=1$，$\xi=(-3,-5,1,0)^T$，$k\xi=k(-3,-5,1,0)^T=(-3k,-5k,k,0)^T$。
+
+所以这个对于$B$而言必然满足前三行，若要整体满足，就也要满足$B$的第四行，所以直接代入第四行：$4(-3k)+a(-5k)+bk+0=k(-12-5a+b)=0$。
+
+又$k$为任意数，所以$-12-5a+b=0$，即$b=5a+12$。
+
+**例题：**设$A$为$n$阶实矩阵，$A^T$是$A$的转置矩阵，证明方程组$\Lambda:Ax=0$和$\Upsilon:A^TAx=0$是同解方程组。
+
+证明：若$\gamma$为$\Lambda$的唯一解，则$A\gamma=0$，则$A^TA\gamma=A^T0=0$，$\therefore\gamma$也为$\Upsilon$的解。
+
+若$\eta$为$\Upsilon$的唯一解，则$A^TA\eta=0$，$\eta^TA^TA\eta=(A\eta)^TA\eta=\Vert A\eta\Vert^2=0$，所以$A\eta=0$，从而$\eta$也为$\Lambda$的解。
+
+所以同解，所以其两个矩阵的基解等价。
+
+[**定理：**]{style="color: aqua"}$r(A)=r(A^T)=r(A^TA)=r(AA^T)$。

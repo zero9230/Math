@@ -1,0 +1,137 @@
+{
+  "main": {
+    "id": "ae57e2f68ace679b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3d08690f664899a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "advanced-math/exercise/1-limit/limit.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fef35b3ee54a0cf2",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ef62505208520d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f9e6def2b90c627",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "9285317a95e0bee1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6627188ed08469d0",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1342284846edce2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "e032ea964c48a279",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4913662bae1fd00",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "advanced-math/exercise/1-limit/limit.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c2e0e81c976115ec",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "advanced-math/exercise/1-limit/limit.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2a0d8e0e5227d4a2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "eec374c2b0b0fec0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "advanced-math/exercise/1-limit/limit.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "d3d08690f664899a",
+  "lastOpenFiles": [
+    "advanced-math/knowledge/9-differential-equation/differential-equation.md",
+    "advanced-math/knowledge/1-function-and-limit/function-and-limit.md",
+    "advanced-math/knowledge/1-function-and-limit/function-and-limit copy.md"
+  ]
+}

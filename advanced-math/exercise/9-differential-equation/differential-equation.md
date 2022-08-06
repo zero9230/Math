@@ -1,0 +1,175 @@
+---
+author:
+- Didnelpsun
+title: 微分方程
+---
+
+# 一阶微分方程
+
+## 可分离变量微分方程
+
+**例题：**求$y\sin\dfrac{x}{2}\,\textrm{d}x-\cos\dfrac{x}{2}\,\textrm{d}y=0$的通解。
+
+解：$\dfrac{\textrm{d}y}{\textrm{d}x}=y\tan\dfrac{x}{2}$，$\dfrac{\textrm{d}y}{y}=\tan\dfrac{x}{2}\,\textrm{d}x$，$\displaystyle{\int\dfrac{\textrm{d}y}{y}=2\int\tan\dfrac{x}{2}\,\textrm{d}\dfrac{x}{2}}$。
+
+解得$\ln\vert y\vert=-\ln\left(\cos\dfrac{x}{2}\right)^2+\ln C_1$（取对数更好解），$\vert y\vert=\dfrac{C_1}{\left(\cos\dfrac{x}{2}\right)^2}$。
+
+$y=\dfrac{\pm C_1}{\left(\cos\dfrac{x}{2}\right)^2}$，令$C=\pm C_1$，得$y=\dfrac{C}{1+\cos x}$。
+
+注意在第一步时将$y$除到分母上，本来$y$为任意常数，变为$y\neq0$，所以解得最后$C\neq0$，而实际上$y$可以为0，所以$C$应该为任意常数。
+
+此时解为全部解，为通解加上$y=0$的奇解。
+
+## 多项式换元
+
+**例题：**求微分方程$\textrm{d}y=\sin(x+y+100)\,\textrm{d}x$的通解。
+
+解：令$u=x+y+100$，$\dfrac{\textrm{d}u}{\textrm{d}x}=1+\dfrac{\textrm{d}y}{\textrm{d}x}$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\sin(x+y+100)$，$\therefore\dfrac{\textrm{d}u}{\textrm{d}x}=1+\sin u$。
+
+$\dfrac{\textrm{d}u}{1+\sin u}=\textrm{d}x$，$\displaystyle{\int\dfrac{\textrm{d}u}{1+\sin u}}=\int\textrm{d}x$，$\displaystyle{\int\dfrac{1-\sin u}{\cos^2u}}\textrm{d}u=x$。
+
+$\int\sec^2u-\tan u\sec u\,\textrm{d}u=x$，即$\tan u-\sec u=x+C$。代回$u=x+y+100$：
+
+通解$\tan(x+y+100)-\sec(x+y+100)=x+C$。
+
+所有解：$\tan(x+y+100)-\sec(x+y+100)=x+C$，$x+y+100=2k\pi-\dfrac{\pi}{2}$。
+
+## 自然齐次方程
+
+**例题：**设$L$是一条平面曲线，其上任意一点$P(x,y)$（$x>0$）到坐标原点的距离恒等于该点处的切线在$y$轴上的截距，且$L$经过点$\left(\dfrac{1}{2},0\right)$，求$L$的方程。
+
+解：$(x,y)$到坐标原点的距离为$\sqrt{x^2+y^2}$。
+
+若$y=y(x)$，则切线为$Y-y=y'(X-x)$，令$X=0$，解得$Y=y-xy'$。
+
+$\therefore\sqrt{x^2+y^2}=y-xy'$，解得$y'=\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y-\sqrt{x^2+y^2}}{x}=\dfrac{y}{x}-\sqrt{1+\dfrac{y^2}{x^2}}$。
+
+令$\dfrac{y}{x}=u$，则$y=ux$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}u}{\textrm{d}x}x+u$。代入$y'$：
+
+$\dfrac{\textrm{d}u}{\textrm{d}x}x+u=u-\sqrt{1+u^2}$，$\dfrac{\textrm{d}u}{\sqrt{1+u^2}}=-\dfrac{\textrm{d}x}{x}$，$\displaystyle{\int\dfrac{\textrm{d}u}{\sqrt{1+u^2}}=-\int\dfrac{\textrm{d}x}{x}}$。
+
+$\therefore\ln(u+\sqrt{1+u^2})=-\ln x+\ln C$，$u+\sqrt{1+u^2}=\dfrac{C}{x}$。
+
+代入$\dfrac{y}{x}+\sqrt{1+\dfrac{y^2}{x^2}}=\dfrac{C}{x}$，$y+\sqrt{x^2+y^2}=C$。
+
+## 一阶线性方程
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$。
+
+**例题：**求微分方程$y'+1=e^{-y}\sin x$的通解。
+
+解：已知对$e^{-y}\sin x$无法处理，所以必然需要对其转换，$e^yy'+e^y=\sin x$。
+
+$\therefore(e^y)'+e^y=\sin x$，令$e^y=u$，$u'+u=\sin x$，$P(x)=1$，$Q(x)=\sin x$。
+
+$e^y=u=e^{-\int\textrm{d}x}(\int e^{\int\textrm{d}x}\sin x\,\textrm{d}x+C)=e^{-x}(\int e^x\sin x\,\textrm{d}x+C)$，积分再现表格解出$\int e^x\sin x\,\textrm{d}x$：$=e^{-x}\left(\dfrac{1}{2}e^x(\sin x-\cos x)+C\right)$。
+
+## 伯努利方程
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)y^n$。
+
+**例题：**求$y\,\textrm{d}x=(1+x\ln y)x\,\textrm{d}y$（$y>0$）的通解。
+
+解：将导数放到一边：$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y}{(1+x\ln y)x}$，这个算式无法处理。
+
+而颠倒$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{(1+x\ln y)x}{y}=\dfrac{1}{y}x+\dfrac{\ln y}{y}x^2$。
+
+凑伯努利方程：$x'+P(x)x=Q(x)x^n$：$x'-\dfrac{1}{y}x=\dfrac{\ln y}{y}x^2$。$P(x)=-\dfrac{1}{y}$，$Q(x)=\dfrac{\ln y}{y}$。
+
+乘$x^{-2}$降阶：$x^{-2}x'-\dfrac{1}{y}x^{-1}=\dfrac{\ln y}{y}$。令$z=x^{-1}$，$\dfrac{\textrm{d}z}{\textrm{d}y}=-\dfrac{1}{x^2}\dfrac{\textrm{d}x}{\textrm{d}y}$。代入方程：
+
+$-\dfrac{\textrm{d}z}{\textrm{d}y}-\dfrac{1}{y}z=\dfrac{\ln y}{y}$，$\dfrac{\textrm{d}z}{\textrm{d}y}+\dfrac{1}{y}z=-\dfrac{\ln y}{y}$，利用公式：
+
+$z=e^{-\int\frac{1}{y}\textrm{d}y}\left(\displaystyle{\int e^{\int\frac{1}{y}\textrm{d}y}\cdot\left(\dfrac{\ln y}{y}\right)+C}\right)=\dfrac{1}{y}(-\int\ln y\,\textrm{d}y+C)=\dfrac{1}{y}(-y(\ln y-1)+C)=-\ln y+1+\dfrac{C}{y}$。
+
+$\therefore x=\dfrac{y}{-y\ln y+y+C}$。
+
+# 二阶可降阶微分方程
+
+## $y''=f(x,y')$型
+
+**例题：**求$y''=\dfrac{2xy'}{1+x^2}$的通解。
+
+解：令$y'=p$，$p'=\dfrac{2xp}{1+x^2}$，$\dfrac{\textrm{d}p}{\textrm{d}x}=\dfrac{2xp}{1+x^2}$，$\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}$，$\displaystyle{\int\dfrac{\textrm{d}p}{p}=\int\dfrac{2x}{1+x^2}}$。
+
+$\ln\vert p\vert=\ln(1+x^2)+\ln C_1$，$p=\pm C_1(1+x^2)=C_2(1+x^2)$。
+
+$y'=C(1+x^2)$，$\therefore y=C_2\left(x+\dfrac{x^3}{3}+x\right)+C$。
+
+## $y''=f(y,y')$型
+
+# 高阶线性微分方程
+
+## 常系数齐次线性微分方程
+
+## 常系数非齐次线性微分方程
+
+先将常系数非齐次线性微分方程变为常系数齐次线性微分方程求解，然后加上非齐次方程的一个特解，就是非齐次方程的一个通解。
+
+**例题：**求$y''-4y'+4y=3xe^{2x}$的通解。
+
+解：变为常系数齐次线性微分方程：$y''-4y'+4y$。
+
+写出特征方程：$\lambda^2-4\lambda+4=0$，从而$(\lambda-2)^2=0$，$\lambda_1=\lambda_2=2$。
+
+从而$y$齐次方程的通解为$(C_1+C_2x)e^{2x}$。
+
+根据特解的设置方法，设$y^*=e^{2x}(ax+b)x^2$。
+
+代回二阶方程，$a=\dfrac{1}{2}$，$b=0$。通解为$(C_1+C_2x)e^{2x}+\dfrac{1}{2}x^3e^{2x}$。
+
+**例题：**微分方程$y''-4y'+3y=e^x\cos x+xe^{3x}$的通解。
+
+解：首先常系数齐次线性微分方程：$y''-4y'+3y=0$。
+
+特征方程为$\lambda^2-4\lambda+3=0$，解得特征值为$\lambda_1=1$，$\lambda_2=3$。
+
+所以该齐次方程的通解：$y=C_1e^x+C_2e^{3x}$。
+
+然后求特解，首先求后面$f_2(x)=xe^{3x}$的特解$y_2^*$。
+
+根据公式因为$\alpha$为单特征根，即$\aleph=3=\lambda_2\neq\lambda_1$，所以$y_2^*=e^{3x}(ax+b)x$。
+
+然后是求$f_1(x)=e^x\cos x$的特解$y_1^*$。
+
+其中$P_m(x)=1$，$P_n(x)=0$，$l=0$。所以设$P_m(x)=A$，$P_n(x)=B$。
+
+对$k$，自由项中$\alpha=\beta=1$，得到$1\pm i$。又$1\pm i\neq\lambda_1=1\neq\lambda_2=3$，$k=0$。
+
+最后$y_1^*=e^x(A\cos x+B\sin x)$。通解为$y=C_1e^x+C_2e^{3x}+e^x(A\cos x+B\sin x)+e^{3x}(ax+b)x$。
+
+# 微分方程概念
+
+对于有些方程并不需要求解后才能解决问题。
+
+## 已知微分方程的解反求系数
+
+**例题：**设$y_1,y_2$为一阶非齐次线性微分方程$y'+p(x)y=q(x)$的两个特解，若常数$\lambda,\mu$使得$\lambda y_1+\mu y_2$是该方程的解，$\lambda y_1-\mu y_2$是该方程对应的齐次方程的解，则()。
+
+$A.\lambda=\dfrac{1}{2},\mu=\dfrac{1}{2}$$B.\lambda=-\dfrac{1}{2},\mu=-\dfrac{1}{2}$$C.\dfrac{2}{3},\mu=\dfrac{1}{3}$$\lambda=\dfrac{2}{3},\mu=\dfrac{2}{3}$
+
+## 不解微分方程，利用方程隐含信息
+
+$F(y,y',y'',\cdots,y^{(n)})=0$反映了**未知函数及其各阶导数之间的关系**。
+
+**例题：**设$y=f(x)$是方程$y''-2y'+4y=0$的一个解，若$f(x_0)>0$，且$f'(x_0)=0$，则函数$f(x)$在点$x_0$()。
+
+$A.$取得最大值$B.$取得最小值$C.$某个邻域内单调增加$D.$某个邻域内单调减少
+
+解：因为$y=f(x)$是方程$y''-2y'+4y=0$的一个解，所以直接代入$x_0$：$y''(x_0)-2y'(x_0)+4y(x_0)=0$。又$f'(x_0)=0$。
+
+$y''(x_0)=-4y(x_0)<0$，所以该点为极大值点。
+
+# 欧拉方程
+
+# 微分方程物理应用
+
+## 牛顿第二定律
+
+$F=ma$，物体质量$m$，力$f$，加速度$a=\dfrac{\textrm{d}^x}{\textrm{d}t^2}=\dfrac{\textrm{d}v}{\textrm{d}t}=\dfrac{\textrm{d}v}{\textrm{d}x}\dfrac{\textrm{d}x}{\textrm{d}t}=v\dfrac{\textrm{d}v}{\textrm{d}x}$。
+
+## 变化率
+
+考的可能性较大，提法多为$t$时刻某量$y$对$t$的变化率与$t$时刻某量成正比。
+
+如冷却定律，$k$时刻物体温度$T(t)$对时间的变化率与$t$时刻物体与介质的温差$T-T_0$成正比，应写为$\dfrac{\textrm{d}T}{\textrm{d}t}=-k(x-x_0)$。
