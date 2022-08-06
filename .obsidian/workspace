@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "d3d08690f664899a",
+        "id": "304574d04bee7c16",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "advanced-math/exercise/1-limit/limit.md",
-            "mode": "source",
+            "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+            "mode": "preview",
             "source": false
           }
         }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "advanced-math/exercise/1-limit/limit.md",
+                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "advanced-math/exercise/1-limit/limit.md",
+                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "advanced-math/exercise/1-limit/limit.md"
+                "file": "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md"
               }
             }
           }
@@ -128,10 +128,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "d3d08690f664899a",
+  "active": "304574d04bee7c16",
   "lastOpenFiles": [
-    "advanced-math/knowledge/9-differential-equation/differential-equation.md",
-    "advanced-math/knowledge/1-function-and-limit/function-and-limit.md",
-    "advanced-math/knowledge/1-function-and-limit/function-and-limit copy.md"
+    "advanced-math/knowledge/7-integral-calculus-of-multivariate-functions/integral-calculus-of-multivariate-functions.md",
+    "advanced-math/knowledge/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+    "advanced-math/exercise/7-integral-calculus-of-multivariate-functions/integral-calculus-of-multivariate-functions.md",
+    "advanced-math/exercise/8-infinite-series/infinite-series.md",
+    "advanced-math/exercise/9-differential-equation/differential-equation.md",
+    "advanced-math/exercise/6-differential-calculus-of-multivariate-functions/differential-calculus-of-multivariate-functions.md",
+    "advanced-math/exercise/4-integal-of-functions-of-single-variable/integal-of-functions-of-single-variable.md",
+    "probability-theory-and-mathematical-statistics/knowledge/2-random-variables-and-distribution/random-variables-and-distribution.md",
+    "probability-theory-and-mathematical-statistics/knowledge/1-random-events-and-probability/random-events-and-probability.md",
+    "linear-algebra/knowledge/5-similar/similar.md"
   ]
 }

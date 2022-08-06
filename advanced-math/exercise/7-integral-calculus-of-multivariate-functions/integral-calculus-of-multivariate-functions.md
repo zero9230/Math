@@ -4,11 +4,11 @@ author:
 title: 多元函数积分学
 ---
 
-# 二重积分
+# 1 二重积分
 
-## 交换积分次序
+## 1.1 交换积分次序
 
-### 直角坐标系
+### 1.1.1 直角坐标系
 
 **例题：**交换积分次序$\int_0^1\textrm{d}x\int_0^{x^2}f(x,y)\,\textrm{d}y+\int_1^3\textrm{d}x\int_0^{\frac{1}{2}(3-x)}f(x,y)\,\textrm{d}y$。
 
@@ -16,7 +16,7 @@ title: 多元函数积分学
 
 所以转换为$\int_0^1\textrm{d}y\int_{\sqrt{y}}^{3-2y}f(x,y)\,\textrm{d}x$。
 
-### 极坐标系
+### 1.1.2 极坐标系
 
 **例题：**对$\int_{-\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^{2\cos\theta}f(r\cos\theta,r\sin\theta)r\,\textrm{d}r$交换积分次序。
 
@@ -44,7 +44,7 @@ $\sigma_2$的$\theta$界限都是是$r=2\cos\theta$这个圆，此时$r>0$恒成
 
 $\int_0^{\sqrt{2}}r\,\textrm{d}r\int_{-\frac{\pi}{4}}^{\arccos\frac{r}{2}}f(r\cos\theta,r\sin\theta)\textrm{d}\theta+\int_{\sqrt{2}}^2r\,\textrm{d}r\int_{-\arccos\frac{r}{2}}^{\arccos\frac{r}{2}}f(r\cos\theta,r\sin\theta)\textrm{d}\theta$。
 
-## 极直互化
+## 1.2 极直互化
 
 **例题：**将$I=\int_0^{\frac{\sqrt{2}}{2}R}e^{-y^2}\textrm{d}y\int_0^ye^{-x^2}\,\textrm{d}x+\int_{\frac{\sqrt{2}}{2}R}^Re^{-y^2}\,\textrm{d}y\int_0^{\sqrt{R^2-y^2}}e^{-x^2}\,\textrm{d}x$转换为极坐标系并计算结果。
 
@@ -56,11 +56,11 @@ $\int_0^{\sqrt{2}}r\,\textrm{d}r\int_{-\frac{\pi}{4}}^{\arccos\frac{r}{2}}f(r\co
 
 $\therefore I=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^Re^{-r^2}r\,\textrm{d}r$。
 
-## 二重积分计算
+## 1.3 二重积分计算
 
 二重积分若是累次积分形式出现，则计算可以使用上面两种方法简便运算。
 
-### 交换积分次序
+### 1.3.1 交换积分次序
 
 当按照当前的积分次序无法算出时需要更换积分次序。主要是看$f(x,y)$是对$x$先积分更简单还是对$y$先积分更简单。
 
@@ -74,7 +74,7 @@ $\therefore I=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^Re^{-r^
 
 $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin x\,\textrm{d}x=-\int_0^\pi\cos^2x\,\textrm{d}(\cos x)=-\dfrac{\cos^3x}{3}\bigg|_0^\pi\\=\dfrac{2}{3}$。
 
-### 积分性质
+### 1.3.2 积分性质
 
 若积分区域$\sigma$关于$x=k_1$或$y=k_2$对称，则当$f(x,y)$含有$x-k_1$或$y-k_2$因式时重积分值为0。
 
@@ -84,7 +84,7 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 
 利用平移，由于$D:(x-1)^2+(y-1)^2=2$，令$x=1+r\cos\theta$，$y=1+r\sin\theta$，则利用极坐标，$r\in[0,\sqrt{2}]$，$\theta\in[0,2\pi]$，$=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}((1+r\cos\theta)(1+r\sin\theta)r)\textrm{d}r=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}(1+r\sin\theta+r\cos\theta+r^2\sin\theta\cos\theta)r\,\textrm{d}r$，又将$\sin\theta$和$\cos\theta$对$\theta$在$[0,2\pi]$进行积分全部为0，所以直接把后面的全消掉，变为$\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r\,\textrm{d}r=2\pi$。
 
-### 切分区域
+### 1.3.3 切分区域
 
 **例题：**设$D=\{(x,y)|0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，求$\displaystyle{\iint\limits_D\dfrac{\textrm{d}x\textrm{d}y}{\sqrt{x^2+y^2}}}$。
 
@@ -98,7 +98,7 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 
 即对二重积分求导，需要将二重积分化为一重积分。
 
-## 二重积分等式
+## 1.4 二重积分等式
 
 **例题：**设$f(x,y)$为连续函数，且$f(x,y)=\dfrac{1}{\pi}\sqrt{x^2+y^2}\iint\limits_{x^2+y^2\leqslant1}f(x,y)\,\textrm{d}\sigma+y^2$，求$f(x,y)$。
 
@@ -112,13 +112,13 @@ $A=\dfrac{A}{\pi}\int_0^{2\pi}\textrm{d}\theta\int_0^1r^2\,\textrm{d}r+\int_0^{2
 
 则代入原式$f(x,y)=\dfrac{3}{4}\sqrt{x^2+y^2}+y^2$。
 
-## 二重积分求导
+## 1.5 二重积分求导
 
-## 一重积分化二重积分
+## 1.6 一重积分化二重积分
 
 对于一重积分的计算或证明可能比较有难度，如两个关于$x$的函数的一重积分乘积计算，可以将其中一个$x$当作$y$，从而将一重积分的乘积变为二重积分。
 
-### 乘积化不等式
+### 1.6.1 乘积化不等式
 
 **例题：**$f(x)$为恒大于0的连续函数，证明$\displaystyle{\int_a^bf(x)\,\textrm{d}x\cdot\int_a^b\dfrac{1}{f(x)}\textrm{d}x\geqslant(b-a)^2}$。
 
@@ -134,7 +134,7 @@ $I=\displaystyle{\int_a^bf(x)\,\textrm{d}x\cdot\int_a^b\dfrac{1}{f(x)}\textrm{d}
 
 $\therefore I=\displaystyle{\dfrac{1}{2}\left[\iint\limits_D\left[\dfrac{f(x)}{f(y)}+\dfrac{f(y)}{f(x)}\right]\textrm{d}x\textrm{d}y\right]\geqslant\dfrac{1}{2}\iint\limits_D2\sqrt{\dfrac{f(x)}{f(y)}\cdot\dfrac{f(y)}{f(x)}}\textrm{d}x\textrm{d}y=}\\\displaystyle{\dfrac{1}{2}\iint\limits_D2\textrm{d}x\textrm{d}y}=(b-a)^2$。
 
-### 乘积简化计算
+### 1.6.2 乘积简化计算
 
 **例题：**求$\int_0^{+\infty}e^{-x^2}\,\textrm{d}x$。
 

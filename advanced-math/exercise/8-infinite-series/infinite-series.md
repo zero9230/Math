@@ -4,11 +4,11 @@ author:
 title: 无穷级数
 ---
 
-# 求和函数
+# 1 求和函数
 
 可以利用展开式求和函数，但是很多展开式的通项都不是公式中的，就需要对通项进行变形。
 
-## 先导后积
+## 1.1 先导后积
 
 $n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textrm{d}t=S(x)-S(x_0)$，即$S(x)=S(x_0)+\int_{x_0}^xS'(t)\,\textrm{d}t$。一般选择$x_0$为展开点。
 
@@ -22,7 +22,7 @@ $n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textr
 
 $\therefore S(x)=S(0)+\displaystyle{\int_0^x\left(\sum\limits_{n=1}^\infty\dfrac{t^n}{n}\right)_t'\,\textrm{d}t}=0+\int_0^x(\sum\limits_{n=1}^\infty t^{n-1})\,\textrm{d}t=\displaystyle{\int_0^x\dfrac{1}{1-t}\textrm{d}t}=-\ln(1-x)$。收敛域为$(-1,1)$。
 
-## 先积后导
+## 1.2 先积后导
 
 $n$在分子上，先积后导。$(\int S(x)\,\textrm{d}x)'=S(x)$。
 

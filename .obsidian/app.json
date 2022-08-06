@@ -1,6 +1,8 @@
 {
   "newFileLocation": "current",
   "newLinkFormat": "relative",
-  "attachmentFolderPath": "./attachments",
-  "useMarkdownLinks": true
+  "attachmentFolderPath": "./differential-calculus-of-multivariate-functions.assets",
+  "useMarkdownLinks": true,
+  "defaultViewMode": "preview",
+  "showUnsupportedFiles": false
 }
